@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[6.0.540, )",
               "autoReferenced": true
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.1.15, )"
             }
           },
           "imports": [
@@ -176,6 +180,10 @@
               "version": "[6.0.540, )",
               "autoReferenced": true
             },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.1.15, )"
+            },
             "System.Runtime.InteropServices.NFloat.Internal": {
               "target": "Package",
               "version": "[6.0.1, )",
@@ -263,6 +271,10 @@
               "target": "Package",
               "version": "[6.0.540, )",
               "autoReferenced": true
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.1.15, )"
             },
             "System.Runtime.InteropServices.NFloat.Internal": {
               "target": "Package",

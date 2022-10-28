@@ -46,4 +46,8 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Radzen.Blazor" Version="4.1.15" />
+    </ItemGroup>
+
 </Project>
