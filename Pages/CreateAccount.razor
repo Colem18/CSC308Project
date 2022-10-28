@@ -1,0 +1,30 @@
+﻿@page "/createAccount"
+
+<div class="col-xl-6 p-3">
+    <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+        Create Account
+    </RadzenText>
+    <RadzenTemplateForm Data=@("SimpleLogin") Action="http://www.google.com">
+        <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login=@(args => OnLogin(args, "Simple login")) />
+    </RadzenTemplateForm>
+</div>
+
+@code {
+    string userName = "admin";
+    string password = "admin";
+
+    void OnLogin(LoginArgs args, string name)
+    {
+        Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
+    }
+
+    //void OnRegister(string name)
+    //{
+    //    Console.WriteLine($"{name} -> Register");
+    //}
+
+    //void OnResetPassword(string value, string name)
+    //{
+    //    Console.WriteLine($"{name} -> ResetPassword for user: {value}");
+    //}
+}
