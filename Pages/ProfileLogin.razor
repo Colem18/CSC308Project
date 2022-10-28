@@ -1,0 +1,15 @@
+﻿@page "/profileLogin"
+
+<h1>Profile Login</h1>
+
+<div class="col-xl-6 p-3">
+        <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+            Login with register
+        </RadzenText>
+        <RadzenTemplateForm Data=@("LoginWithRegister")>
+            <RadzenLogin AllowResetPassword="false" />
+                         @*Login=@(args => OnLogin(args, "Login with register"))
+                         Register=@(args => OnRegister("Login with register")) />*@
+        </RadzenTemplateForm>
+</div>
+
