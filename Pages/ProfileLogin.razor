@@ -1,0 +1,36 @@
+﻿@page "/profileLogin"
+@inject NavigationManager NavManager
+
+<h1>Profile Login</h1>
+
+<div class="col-xl-6 p-3">
+    <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+        Login with register
+    </RadzenText>
+    <RadzenTemplateForm Data=@("LoginWithRegister")>
+        <RadzenLogin AllowResetPassword="false"
+                     Login=@(args => OnLogin(args, "Login with register"))
+                     Register=@(args => OnRegister("Login with register")) />
+    </RadzenTemplateForm>
+</div>
+
+@code {
+    string userName = "admin";
+    string password = "admin";
+
+    void OnLogin(LoginArgs args, string name)
+    {
+        Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
+    }
+
+    void OnRegister(string name)
+    {
+        Console.WriteLine($"{name} -> Register");
+        NavManager.NavigateTo("/createAccount");
+    }
+
+    void OnResetPassword(string value, string name)
+    {
+        Console.WriteLine($"{name} -> ResetPassword for user: {value}");
+    }
+}
