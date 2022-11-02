@@ -9,7 +9,7 @@
       <dSYMInfoPlistRelativePath>eventsApp.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
       <SymbolFile>obj/Debug/net6.0-maccatalyst/maccatalyst-x64/mtouch-symbols.list</SymbolFile>
       <DSymName>eventsApp.app.dSYM</DSymName>
-      <SourceProjectPath>/Users/kellybecker/Desktop/CSC308/eventsApp</SourceProjectPath>
+      <SourceProjectPath>/Users/devmasrani/Projects/CSC308Project</SourceProjectPath>
     </_PostProcessingItem>
   </ItemGroup>
 </Project>

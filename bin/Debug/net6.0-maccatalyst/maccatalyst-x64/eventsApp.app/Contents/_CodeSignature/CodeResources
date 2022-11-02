@@ -10,7 +10,15 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		aGnY+Ae2NO6z2lQb4OAwtNdDK8o=
+		mBO9JUT/QUXiw+vEbHcEBFTPXvk=
+		</data>
+		<key>Resources/Images/sharivari.jpg</key>
+		<data>
+		Vvz7MP3+ouleMCsaxrLx7J+P8Vg=
+		</data>
+		<key>Resources/Images/sharivari.png</key>
+		<data>
+		3mQOn9d7aeDhUaiYsc5w+pYSjpA=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -23,6 +31,14 @@
 		<key>Resources/OpenSans-Regular.ttf</key>
 		<data>
 		Lrh/ZBAxs2IuYzVMdTemqmQv7uQ=
+		</data>
+		<key>Resources/Pages/images/sharivari.png</key>
+		<data>
+		3mQOn9d7aeDhUaiYsc5w+pYSjpA=
+		</data>
+		<key>Resources/Pages/sharivari.png</key>
+		<data>
+		3mQOn9d7aeDhUaiYsc5w+pYSjpA=
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
@@ -39,6 +55,14 @@
 		<key>Resources/dotnet_bot@3x.png</key>
 		<data>
 		q9YkYdXEtTarjODSzZazJNqUnN4=
+		</data>
+		<key>Resources/sharivari.jpg</key>
+		<data>
+		Vvz7MP3+ouleMCsaxrLx7J+P8Vg=
+		</data>
+		<key>Resources/sharivari.png</key>
+		<data>
+		3mQOn9d7aeDhUaiYsc5w+pYSjpA=
 		</data>
 		<key>Resources/wwwroot/_content/Radzen.Blazor/Radzen.Blazor.js</key>
 		<data>
@@ -1629,14 +1653,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C9+wNWWdqnQS0T2/Aq+2AdV0NF2sSuZO9QnySpU5VTo=
+			ZGNITOsCgwuzPDf+1gtuXfTHZPy3meGVtdeJkwcvjrE=
 			</data>
 		</dict>
 		<key>MonoBundle/eventsApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zQnDx3EYFblMulM5heMGUy0/HlOitZkydmzvtGcQMCk=
+			ySq9B1di5ebXC7Z7kEUALh+T/gssA8OaLoY/sk3WXJg=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1720,7 +1744,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mlwX/M/9+jw2jM+etWRRyaESPSca/7wE7NFfjLIbzXo=
+			9Y/oDF+4taOVOEq0fPlYuy/z4TmS9GpsN+j56JpgVac=
+			</data>
+		</dict>
+		<key>Resources/Images/sharivari.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+Jd8ZCwc0E5gLi6Yn6UvDh2ePBO6J95iFZzrckRTF60=
+			</data>
+		</dict>
+		<key>Resources/Images/sharivari.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TkSCo/vjgIql9Q1ZMZ5jFRv0CoWlJ4Awp8tlO2W0IHs=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1742,6 +1780,20 @@
 			<key>hash2</key>
 			<data>
 			dbLKxpSBbHScdgvS/EC8qccMhRwmZb3s4+Re943CYi4=
+			</data>
+		</dict>
+		<key>Resources/Pages/images/sharivari.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TkSCo/vjgIql9Q1ZMZ5jFRv0CoWlJ4Awp8tlO2W0IHs=
+			</data>
+		</dict>
+		<key>Resources/Pages/sharivari.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TkSCo/vjgIql9Q1ZMZ5jFRv0CoWlJ4Awp8tlO2W0IHs=
 			</data>
 		</dict>
 		<key>Resources/appicon.icns</key>
@@ -1770,6 +1822,20 @@
 			<key>hash2</key>
 			<data>
 			vjYg7v38aCvp3YfVnOekZFebcitnM5IsjyinFJGMvWI=
+			</data>
+		</dict>
+		<key>Resources/sharivari.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+Jd8ZCwc0E5gLi6Yn6UvDh2ePBO6J95iFZzrckRTF60=
+			</data>
+		</dict>
+		<key>Resources/sharivari.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TkSCo/vjgIql9Q1ZMZ5jFRv0CoWlJ4Awp8tlO2W0IHs=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/_content/Radzen.Blazor/Radzen.Blazor.js</key>

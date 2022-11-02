@@ -53,4 +53,17 @@
       <PackageReference Include="Radzen.Blazor" Version="4.1.15" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\Images\IMG_9882.jpg" />
+      <None Remove="Pages\images\" />
+      <None Remove="Pages\sharivari.png" />
+      <None Remove="Resources\Images\sharivari.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Pages\sharivari.png" />
+      <BundleResource Include="Resources\Images\sharivari.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Pages\images\" />
+    </ItemGroup>
 </Project>

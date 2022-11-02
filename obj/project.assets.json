@@ -28056,20 +28056,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/kellybecker/.nuget/packages/": {}
+    "/Users/devmasrani/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kellybecker/Desktop/CSC308/eventsApp/eventsApp.csproj",
+      "projectUniqueName": "/Users/devmasrani/Projects/CSC308Project/eventsApp.csproj",
       "projectName": "eventsApp",
-      "projectPath": "/Users/kellybecker/Desktop/CSC308/eventsApp/eventsApp.csproj",
-      "packagesPath": "/Users/kellybecker/.nuget/packages/",
-      "outputPath": "/Users/kellybecker/Desktop/CSC308/eventsApp/obj/",
+      "projectPath": "/Users/devmasrani/Projects/CSC308Project/eventsApp.csproj",
+      "packagesPath": "/Users/devmasrani/.nuget/packages/",
+      "outputPath": "/Users/devmasrani/Projects/CSC308Project/obj/",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
-        "/Users/kellybecker/.nuget/NuGet/NuGet.Config"
+        "/Users/devmasrani/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0-android",
