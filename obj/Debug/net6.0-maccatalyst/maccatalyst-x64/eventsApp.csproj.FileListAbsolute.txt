@@ -514,11 +514,6 @@
 /Users/devmasrani/Projects/CSC308Project/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/libxamarin-dotnet-debug.dylib
 /Users/devmasrani/Projects/CSC308Project/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/libxamarin-dotnet.a
 /Users/devmasrani/Projects/CSC308Project/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/libxamarin-dotnet.dylib
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.eventsApp.Microsoft.AspNetCore.StaticWebAssets.props
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.build.eventsApp.props
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.buildMultiTargeting.eventsApp.props
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.buildTransitive.eventsApp.props
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.pack.json
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.build.json
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.development.json
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/Shared/MainLayout.razor.rz.scp.css
