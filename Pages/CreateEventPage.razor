@@ -1,0 +1,81 @@
+﻿@page "/createEvent"
+@inject NavigationManager NavManager
+
+<div class="col-xl-6 p-3">
+    <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+        Create Event
+    </RadzenText>
+    <p>
+        <RadzenLabel Component="EventName" Text="Name" />
+        <RadzenTextBox Name="EventName" @bind-Value=name />
+    </p>
+    <p>
+        <RadzenLabel Component="EventDate" Text="Date" />
+        <RadzenTextBox Name="EventDate" @bind-Value=date />
+    </p>
+    <p>
+        <RadzenLabel Component="EventAddress" Text="Address" />
+        <RadzenTextBox Name="EventAddress" @bind-Value=address />
+    </p>
+    <p>
+        <RadzenLabel Component="EventDescription" Text="Description" />
+        <RadzenTextBox Name="EventDescription" @bind-Value=description />
+    </p>
+    <p>
+        <RadzenLabel Component="EventImage" Text="ImageURL" />
+        <RadzenTextBox Name="EventImage" @bind-Value=imageURL />
+    </p>
+    <p>
+        <RadzenLabel Component="EventType" Text="Type" />
+        <RadzenTextBox Name="EventType" @bind-Value=type />
+    </p>
+    <p>
+        <RadzenLabel Component="EventTotalTickets" Text="Ticket Number" />
+        <RadzenTextBox Name="EventTotalTickets" @bind-Value=ticketCount />
+    </p>
+    <RadzenButton Click=@(args => OnSubmit()) Text="Create" ButtonStyle="ButtonStyle.Primary"/>
+
+    @*<RadzenTemplateForm TItem="Event" Data=@event>
+
+        <RadzenButton ButtonType="ButtonType.Submit" Text="Create" />
+    </RadzenTemplateForm>*@
+</div>
+
+@code {
+    string name = "";
+    string date = "";
+    string address = "";
+    string description = "";
+    string imageURL = "";
+    string type = "";
+    string ticketCount = "0";
+
+    /*public class Event{
+        public string name { get; set; }
+        public DateTime dateTime { get; set; }
+        public string address { get; set; }
+        public string description { get; set; }
+        public string imageURL { get; set; }
+        public string type { get; set; }
+        public int totalTickets { get; set; }
+        public int availableTickets { get; set; }
+    }*/
+
+    // Creating a default event
+    /*Event event = new Event();
+        {
+            name = "eventName",
+            dateTime = DateTime.Today,
+            address = "address",
+            description = "description",
+            imageURL = "imgURL",
+            type = "null",
+            totalTickets = 0,
+            availableTickets = 0,
+        };*/
+
+    void OnSubmit()
+    {
+        Console.WriteLine($"Event created!");
+    }
+}
