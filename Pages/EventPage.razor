@@ -1,0 +1,44 @@
+﻿@page "/eventpage"
+
+    <h2 style="text-align: center;">Shari Vari</h2>
+    <RadzenImage Path="https://i.imgur.com/ditrT1U.png" Class="float-left mr-3" Style="width: 100%; border-radius: 2%;" />
+    <br />
+    <hr />
+    <br />
+    <RadzenIcon Icon="schedule" />
+    <p style="text-align:left;">00:00-6:00</p>
+    <RadzenIcon Icon="place" />
+    <p>Via de' Nari, 14, 00186 Roma RM</p>
+    <p></p>
+    <br />
+
+    <h5>Description</h5>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec libero in ex auctor consequat et a turpis. Sed condimentum
+        laoreet pulvinar. Morbi metus lorem, dignissim sit amet sodales cursus, ultricies ut libero. Maecenas porta egestas massa,
+        accumsan interdum justo mollis et. Morbi tristique diam accumsan tincidunt porta. Proin ac lorem nisl. Donec fermentum sapien s
+        ed mollis vehicula. Sed pretium vulputate est, at egestas libero efficitur a. Ut ornare, lacus sed congue egestas, enim ex dapibus
+        nulla
+    </p>
+    <div class="mt-3"> </div>
+    <RadzenButton Click="newPage" Text="Buy Tickets" ButtonStyle="ButtonStyle.Primary" Style="display: inline; width: 30%; border-radius: 2%; margin: auto;" />
+    <RadzenButton Click="FavoriteEvent" Text="@Fav" ButtonStyle="ButtonStyle.Primary" Style="display: inline; width: 40%; border-radius: 2%; margin: auto;" />
+
+    @code {
+        public string Fav = "Favorite Event";
+        private void newPage()
+        {
+
+        }
+        private void FavoriteEvent()
+        {
+            if(Fav == "Favorite Event")
+            {
+                Fav = "Unfavorite Event";
+            } else
+            {
+                Fav = "Favorite Event";
+            }
+        }
+    }
+

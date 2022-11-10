@@ -50,14 +50,21 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Radzen.Blazor" Version="4.1.15" />
+      <PackageReference Include="Radzen.Blazor" Version="4.3.2" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Resources\Images\IMG_9882.jpg" />
-      <None Remove="Pages\images\" />
+      <None Remove="Resources\Data\" />
+      <None Remove="Microsoft.AspNetCore.Components.WebView.Maui" />
+      <None Remove="images\sharivari.png" />
+      <None Remove="images\" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Pages\images\" />
+      <Folder Include="Resources\Data\" />
+      <Folder Include="images\" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="images\sharivari.png" />
     </ItemGroup>
 </Project>
