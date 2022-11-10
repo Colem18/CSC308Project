@@ -565,5 +565,8 @@
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/eventsApp.pdb
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/eventsApp.genruntimeconfig.cache
 /Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/ref/eventsApp.dll
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/resizetizer/r/Resources/sharivari.jpg
-/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/resizetizer/r/Resources/sharivari.png
+/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.eventsApp.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.build.eventsApp.props
+/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.buildMultiTargeting.eventsApp.props
+/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets/msbuild.buildTransitive.eventsApp.props
+/Users/devmasrani/Projects/CSC308Project/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.pack.json
