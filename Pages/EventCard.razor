@@ -1,7 +1,39 @@
 ﻿@page "/eventcard"
 
-<RadzenCard class="m-3">
-    <h3 class="h5">Shari Vari</h3>
+@using Radzen
+@using Microsoft.Maui.Graphics
+
+<style>
+    .flexColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .textIcon{
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: 0;
+        justify-content: flex-end;
+        gap:5px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+</style> 
+
+
+
+<RadzenCard class="flexColumn">
+    <div>
+        <h1 style="text-align:left;">ShariVari</h1>
+        <p style="float:right;">
+            <RadzenButton Icon="star" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Medium" Class="rz-border-radius-10 rz-shadow-8" />
+        </p>
+    </div>
     <p style="text-align:left;">
         Presents
         <span style="float:right;">
