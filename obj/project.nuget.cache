@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+ijZfAcJ4CdvaX/UfC2VecJU/wfaSlVSZkQKAb9FcT05r0jGVwqXOU27wptwX34RkG/AavAGXQew2jF5y0KOLg==",
+  "dgSpecHash": "s3bYLBJ0zGqyao8RaJsDp2kYn3/VdufZ1/fgGBDKokxhznsFAf8EzXV5RbFSP5BFgTR4jZi+p8hZcrLT+8yAsA==",
   "success": true,
   "projectFilePath": "/Users/kellybecker/Desktop/CSC308/CSC308Project/eventsApp.csproj",
   "expectedPackageFiles": [
@@ -35,7 +35,7 @@
     "/Users/kellybecker/.nuget/packages/microsoft.maui.dependencies/6.0.547/microsoft.maui.dependencies.6.0.547.nupkg.sha512",
     "/Users/kellybecker/.nuget/packages/microsoft.maui.extensions/6.0.547/microsoft.maui.extensions.6.0.547.nupkg.sha512",
     "/Users/kellybecker/.nuget/packages/microsoft.maui.graphics/6.0.501/microsoft.maui.graphics.6.0.501.nupkg.sha512",
-    "/Users/kellybecker/.nuget/packages/radzen.blazor/4.3.2/radzen.blazor.4.3.2.nupkg.sha512",
+    "/Users/kellybecker/.nuget/packages/radzen.blazor/4.3.3/radzen.blazor.4.3.3.nupkg.sha512",
     "/Users/kellybecker/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "/Users/kellybecker/.nuget/packages/system.io.pipelines/6.0.3/system.io.pipelines.6.0.3.nupkg.sha512",
     "/Users/kellybecker/.nuget/packages/system.linq.dynamic.core/1.2.22/system.linq.dynamic.core.1.2.22.nupkg.sha512",

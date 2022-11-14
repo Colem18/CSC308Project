@@ -507,7 +507,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -2863,7 +2863,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -5213,7 +5213,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -7563,7 +7563,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -9913,7 +9913,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -12263,7 +12263,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -14613,7 +14613,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -16942,7 +16942,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -17571,7 +17571,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -18194,7 +18194,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -18817,7 +18817,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -19440,7 +19440,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -20063,7 +20063,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -20686,7 +20686,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -21309,7 +21309,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -21938,7 +21938,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -22561,7 +22561,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -23184,7 +23184,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -23807,7 +23807,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -24430,7 +24430,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -25053,7 +25053,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.3.2": {
+      "Radzen.Blazor/4.3.3": {
         "type": "package",
         "dependencies": {
           "LibSassBuilder": "2.0.1",
@@ -25906,10 +25906,10 @@
         "microsoft.maui.graphics.nuspec"
       ]
     },
-    "Radzen.Blazor/4.3.2": {
-      "sha512": "Go4OVJYZz/NpmRUsqvJW57Flw13jm7SydYhe8j7F9I1B0JWsGbE70qiDBPLcM5vfbctK3gKW8JePO1Q9st48MA==",
+    "Radzen.Blazor/4.3.3": {
+      "sha512": "FlEL+RDgiPB8MsnFX1ZMIJii2A+X0+YsFQbvNEyFiYQhY1YMzDJnKXNmmcV6ZcSGtC4LOIawcekK746YPPRnFQ==",
       "type": "package",
-      "path": "radzen.blazor/4.3.2",
+      "path": "radzen.blazor/4.3.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -25928,7 +25928,7 @@
         "lib/net7.0/Radzen.Blazor.xml",
         "lib/netstandard2.1/Radzen.Blazor.dll",
         "lib/netstandard2.1/Radzen.Blazor.xml",
-        "radzen.blazor.4.3.2.nupkg.sha512",
+        "radzen.blazor.4.3.3.nupkg.sha512",
         "radzen.blazor.nuspec",
         "staticwebassets/Radzen.Blazor.js",
         "staticwebassets/css/dark-base.css",
@@ -28050,20 +28050,20 @@
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.547",
       "Microsoft.Maui.Dependencies >= 6.0.547",
       "Microsoft.Maui.Extensions >= 6.0.547",
-      "Radzen.Blazor >= 4.3.2"
+      "Radzen.Blazor >= 4.3.3"
     ],
     "net6.0-ios16.0": [
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.547",
       "Microsoft.Maui.Dependencies >= 6.0.547",
       "Microsoft.Maui.Extensions >= 6.0.547",
-      "Radzen.Blazor >= 4.3.2",
+      "Radzen.Blazor >= 4.3.3",
       "System.Runtime.InteropServices.NFloat.Internal >= 6.0.1"
     ],
     "net6.0-maccatalyst15.4": [
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.547",
       "Microsoft.Maui.Dependencies >= 6.0.547",
       "Microsoft.Maui.Extensions >= 6.0.547",
-      "Radzen.Blazor >= 4.3.2",
+      "Radzen.Blazor >= 4.3.3",
       "System.Runtime.InteropServices.NFloat.Internal >= 6.0.1"
     ]
   },
@@ -28118,8 +28118,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebView.Maui": {
             "target": "Package",
-            "version": "[6.0.547, )",
-            "autoReferenced": true
+            "version": "[6.0.547, )"
           },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
@@ -28133,7 +28132,7 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[4.3.2, )"
+            "version": "[4.3.3, )"
           }
         },
         "imports": [
@@ -28213,8 +28212,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebView.Maui": {
             "target": "Package",
-            "version": "[6.0.547, )",
-            "autoReferenced": true
+            "version": "[6.0.547, )"
           },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
@@ -28228,7 +28226,7 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[4.3.2, )"
+            "version": "[4.3.3, )"
           },
           "System.Runtime.InteropServices.NFloat.Internal": {
             "target": "Package",
@@ -28305,8 +28303,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebView.Maui": {
             "target": "Package",
-            "version": "[6.0.547, )",
-            "autoReferenced": true
+            "version": "[6.0.547, )"
           },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
@@ -28320,7 +28317,7 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[4.3.2, )"
+            "version": "[4.3.3, )"
           },
           "System.Runtime.InteropServices.NFloat.Internal": {
             "target": "Package",

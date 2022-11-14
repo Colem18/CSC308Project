@@ -13,18 +13,18 @@
     <SourceRoot Include="/Users/kellybecker/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == '' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.2/buildMultiTargeting/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.2/buildMultiTargeting/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.3/buildMultiTargeting/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.3/buildMultiTargeting/Radzen.Blazor.props')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net6.0-android' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net6.0-ios' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net6.0-maccatalyst' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.2/buildTransitive/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.3.3/buildTransitive/Radzen.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui/6.0.547/build/Microsoft.AspNetCore.Components.WebView.Maui.props')" />
   </ImportGroup>
 </Project>

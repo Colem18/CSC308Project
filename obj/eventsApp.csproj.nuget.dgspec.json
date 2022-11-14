@@ -52,8 +52,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[6.0.547, )",
-              "autoReferenced": true
+              "version": "[6.0.547, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -67,7 +66,7 @@
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[4.3.2, )"
+              "version": "[4.3.3, )"
             }
           },
           "imports": [
@@ -147,8 +146,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[6.0.547, )",
-              "autoReferenced": true
+              "version": "[6.0.547, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -162,7 +160,7 @@
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[4.3.2, )"
+              "version": "[4.3.3, )"
             },
             "System.Runtime.InteropServices.NFloat.Internal": {
               "target": "Package",
@@ -239,8 +237,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[6.0.547, )",
-              "autoReferenced": true
+              "version": "[6.0.547, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -254,7 +251,7 @@
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[4.3.2, )"
+              "version": "[4.3.3, )"
             },
             "System.Runtime.InteropServices.NFloat.Internal": {
               "target": "Package",
