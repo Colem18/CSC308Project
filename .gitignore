@@ -357,4 +357,5 @@ MigrationBackup/
 #MAUI specific
 obj/
 bin/
+Platforms/
 >>>>>>> 977781c0aae209cc0177846df5abd71602ca1bd2

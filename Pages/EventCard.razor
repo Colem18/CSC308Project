@@ -1,4 +1,5 @@
 ﻿@page "/eventcard"
+@inject NavigationManager NavManager
 
 @using Radzen
 @using Microsoft.Maui.Graphics
@@ -10,20 +11,19 @@
         gap: 0.5em;
     }
 
-    .textIcon{
+    .textIcon {
         display: flex;
         flex-direction: row;
         margin-left: auto;
         margin-right: 0;
         justify-content: flex-end;
-        gap:5px;
+        gap: 5px;
     }
 
     img {
         max-width: 100%;
     }
-
-</style> 
+</style>
 
 
 
@@ -49,6 +49,6 @@
 @code {
     private void newPage()
     {
-
+        NavManager.NavigateTo("/eventpage");
     }
 }

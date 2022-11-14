@@ -12,6 +12,10 @@
                      Login=@(args => OnLogin(args, "Login with register"))
                      Register=@(args => OnRegister("Login with register")) />
     </RadzenTemplateForm>
+    <RadzenButton Style="display:flex; flex-direction:column"
+                  Text="Forgot Password"
+                  Icon="help"
+                  Click="@OnForgotPassword"> </RadzenButton>
 </div>
 
 @code {
@@ -32,5 +36,9 @@
     void OnResetPassword(string value, string name)
     {
         Console.WriteLine($"{name} -> ResetPassword for user: {value}");
+    }
+    void OnForgotPassword()
+    {
+        NavManager.NavigateTo("/forgotpassword");
     }
 }

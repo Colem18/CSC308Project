@@ -1,0 +1,34 @@
+﻿t@page "/adminpage"
+@inject NavigationManager NavManager
+<h1>Welcome!</h1>
+<h3>Select what actions you would like to perform</h3>
+
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Create a New Event"
+              Click="@OnCreateEvent"> </RadzenButton>
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Modify an existing event"
+              Click="@OnModifyEvent"> </RadzenButton>
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Delete an existing event"
+              Click="@OnDeleteEvent"> </RadzenButton>
+
+@code {
+
+    void OnCreateEvent()
+    {
+        NavManager.NavigateTo("/createEventPage");
+    }
+
+    void OnModifyEvent()
+    {
+        NavManager.NavigateTo("/modifyEventPage");
+    }
+
+    void OnDeleteEvent()
+    {
+        NavManager.NavigateTo("/deletecard");
+    }
+
+}
+
