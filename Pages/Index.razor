@@ -1,8 +1,39 @@
 ﻿@page "/"
+@inject NavigationManager NavManager
 
-<h1>Hello, world!</h1>
+<img src="/Images/logo.png" alt="Event Logo" />
 
-Welcome to your new app.
+@*<h1>Hello, world!</h1>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    Roma Events
 
+    Welcome to your new app.
+
+    <SurveyPrompt Title="How is Blazor working for you?" />*@
+
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Continue As Guest"
+              Click="@OnClickGuest"> </RadzenButton>
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Login"
+              Click="@OnClickLogin"> </RadzenButton>
+<RadzenButton Style="display:flex; flex-direction:column"
+              Text="Create Account"
+              Click="@OnClickCreateAccount"> </RadzenButton>
+
+@code{
+    void OnClickGuest()
+    {
+        NavManager.NavigateTo("/home");
+    }
+
+    void OnClickLogin()
+    {
+        NavManager.NavigateTo("/profileLogin");
+    }
+
+    void OnClickCreateAccount()
+    {
+        NavManager.NavigateTo("/createAccount");
+    }
+}
