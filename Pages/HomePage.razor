@@ -1,15 +1,40 @@
 ﻿@page "/home"
 
 @using Radzen
+@using Newtonsoft.Json;
 
 <h1 style="text-align:center;">Welcome to Roma Events!</h1>
 
-<EventCard></EventCard>
-<EventCard></EventCard>
-<EventCard></EventCard>
+@if (EventList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var Event in EventList)
+    {
+        <EventCard eventName="@Event.eventName" eventDateTime="@Event.eventDateTime" eventAddress="@Event.eventAddress" eventDescription="@Event.eventDescription"
+                   eventImageURL="@Event.eventImageURL" eventType="@Event.eventType"></EventCard>
+    }
+}
 
 
 @code {
+    class Event
+    {
+        public string eventName { get; set; }
+        public string eventDateTime { get; set; }
+        public string eventAddress { get; set; }
+        public string eventDescription { get; set; }
+        public string eventImageURL { get; set; }
+        public int eventType { get; set; }
+    }
+    private List<Event> EventList = new List<Event>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        string output = "[\n  {\n    \"eventName\": \"Shari Vari\",\n    \"eventDateTime\": \"2022-10-15T00:30:50\",\n    \"eventAddress\": \"Via de' Nari, 14, 00186 Roma RM\",\n    \"eventDescription\": \"Lorum Ipsum Dolor\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 2\n  },\n  {\n    \"eventName\": \"Cash Club\",\n    \"eventDateTime\": \"2022-10-10T07:30:50\",\n    \"eventAddress\": \"Via Agostino Bertani, 20 00186 Roma RM\",\n    \"eventDescription\": \"Lorup Ipsum My Penis\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 1\n  }\n]";
+        EventList = JsonConvert.DeserializeObject<List<Event>>(output);
+    }
 }
 

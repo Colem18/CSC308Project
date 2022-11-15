@@ -1,0 +1,18 @@
+[
+  {
+    "eventName": "Shari Vari",
+    "eventDateTime": "2022-10-15T00:30:50",
+    "eventAddress": "Via de' Nari, 14, 00186 Roma RM",
+    "eventDescription": "Lorum Ipsum Dolor",
+    "eventImageURL": "https://i.imgur.com/ditrT1U.png",
+    "eventType": 2
+  },
+  {
+    "eventName": "Cash Club",
+    "eventDateTime": "2022-10-10T07:30:50",
+    "eventAddress": "Via Agostino Bertani, 20 00186 Roma RM",
+    "eventDescription": "Lorup Ipsum My Penis",
+    "eventImageURL": "https://i.imgur.com/ditrT1U.png",
+    "eventType": 1
+  }
+]
