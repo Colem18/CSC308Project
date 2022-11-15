@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inject NavigationManager NavManager
 
-<img src="/Images/logo.png" alt="Event Logo" />
+<img src="img/logo_white.png" alt="Event Logo" width="500" height="500"/>
 
 @*<h1>Hello, world!</h1>
 
@@ -11,13 +11,13 @@
 
     <SurveyPrompt Title="How is Blazor working for you?" />*@
 
-<RadzenButton Style="display:flex; flex-direction:column"
+<RadzenButton Style="display:flex; flex-direction: column; background-color: #066274"
               Text="Continue As Guest"
               Click="@OnClickGuest"> </RadzenButton>
-<RadzenButton Style="display:flex; flex-direction:column"
+<RadzenButton Style="display:flex; flex-direction:column; background-color: #066274"
               Text="Login"
               Click="@OnClickLogin"> </RadzenButton>
-<RadzenButton Style="display:flex; flex-direction:column"
+<RadzenButton Style="display:flex; flex-direction:column; background-color: #066274"
               Text="Create Account"
               Click="@OnClickCreateAccount"> </RadzenButton>
 
