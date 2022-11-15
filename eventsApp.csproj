@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
         <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
@@ -53,7 +53,6 @@
     <ItemGroup>
       <PackageReference Include="Radzen.Blazor" Version="4.3.3" />
       <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="6.0.547" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -62,7 +61,6 @@
       <None Remove="Microsoft.AspNetCore.Components.WebView.Maui" />
       <None Remove="images\sharivari.png" />
       <None Remove="images\" />
-      <None Remove="Newtonsoft.Json" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Resources\Data\" />
@@ -70,13 +68,11 @@
     </ItemGroup>
     <ItemGroup>
       <BundleResource Include="images\sharivari.png" />
-      <BundleResource Include="**\*.json">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </BundleResource>
+      <BundleResource Include="wwwroot\img\logo_blue500.png" />
+      <BundleResource Include="wwwroot\img\logo_white.png" />
     </ItemGroup>
     <ItemGroup>
-      <Content Remove="EventList.json" />
+      <Content Remove="wwwroot\img\logo_blue500.png" />
+      <Content Remove="wwwroot\img\logo_white.png" />
     </ItemGroup>
 </Project>

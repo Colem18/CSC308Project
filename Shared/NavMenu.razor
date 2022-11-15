@@ -1,10 +1,13 @@
-<div class="top-row ps-3 navbar navbar-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="">eventsApp</a>
-		<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
+
+<div class="top-row navbar ps-3 navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="">
+            <img src="img/logo_blue500.png" alt="bluelogo" width="250" height="250" class="d-inline-block align-top">
+        </a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
@@ -36,14 +39,14 @@
                 <RadzenPanelMenuItem Style="width: auto" Text="Create Event Page" Icon="post_add" Path="createEventPage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Modify Event Page" Icon="post_add" Path="ModifyEventPage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Select Event Type" Icon="post_add" Path="pickEventType" />
-                <RadzenPanelMenuItem Style="width: auto" Text="Event Name and Description" Icon="post_add" Path="eventNameDescriptionPage"/>
+                <RadzenPanelMenuItem Style="width: auto" Text="Event Name and Description" Icon="post_add" Path="eventNameDescriptionPage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Event Start Date and Time Page" Icon="post_add" Path="EventStartDateAndTimePage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Pick Event Location Page" Icon="post_add" Path="pickEventLocationPage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Upload Event Image Page" Icon="post_add" Path="uploadEventImagePage" />
-                <RadzenPanelMenuItem Style="width: auto" Text="EventCard" Icon="home" Path="eventcard"/>
-                <RadzenPanelMenuItem Style="width: auto" Text="Event Page" Icon="home" Path="eventpage"/>
-                <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard"/>
-                <RadzenPanelMenuItem Style="width: auto" Text="Delete Card" Icon="home" Path="deletecard"/>
+                <RadzenPanelMenuItem Style="width: auto" Text="EventCard" Icon="home" Path="eventcard" />
+                <RadzenPanelMenuItem Style="width: auto" Text="Event Page" Icon="home" Path="eventpage" />
+                <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard" />
+                <RadzenPanelMenuItem Style="width: auto" Text="Delete Card" Icon="home" Path="deletecard" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Forgot Password" Icon="help" Path="forgotpassword" />
             </RadzenPanelMenu>
         </RadzenCard>
@@ -51,13 +54,13 @@
 </div>
 
 @code {
-	private bool collapseNavMenu = true;
+    private bool collapseNavMenu = true;
 
-	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-	private void ToggleNavMenu()
-	{
-		collapseNavMenu = !collapseNavMenu;
-	}
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
 }
 
