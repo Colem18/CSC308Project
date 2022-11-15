@@ -25,30 +25,54 @@
     }
 </style>
 
-
-
 <RadzenCard class="flexColumn">
     <div>
-        <h1 style="text-align:left;">ShariVari</h1>
+        <h1 style="text-align:left;">@eventName</h1>
         <p style="float:right;">
-            <RadzenButton Icon="star" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Medium" Class="rz-border-radius-10 rz-shadow-8" />
+            <RadzenButton Click="FavoriteEvent" Icon="@star" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Medium" Class="rz-border-radius-10 rz-shadow-8" />
         </p>
     </div>
     <p style="text-align:left;">
         Presents
         <span style="float:right;">
-            00:00-6:00
+            @eventDateTime
         </span>
     </p>
-    <p>Via de' Nari, 14, 00186 Roma RM</p>
-    <RadzenImage Path="https://i.imgur.com/ditrT1U.png" Class="float-left mr-3" Style="width: 100%; border-radius: 2%;" />
+    <p>@eventAddress</p>
+    <RadzenImage Path="@eventImageURL" Class="float-left mr-3" Style="width: 100%; border-radius: 2%;" />
     <div class="mt-3"> </div>
     <RadzenButton Click="newPage" Text="View Event" ButtonStyle="ButtonStyle.Primary" Style="display: block; width: 100%; border-radius: 2%;" />
 </RadzenCard>
 
 @code {
+    public string star = "star_border";
+
+    [Parameter]
+    public string eventName { get; set; }
+    [Parameter]
+    public String eventDateTime { get; set; }
+    [Parameter]
+    public string eventAddress { get; set; }
+    [Parameter]
+    public string eventDescription { get; set; }
+    [Parameter]
+    public string eventImageURL { get; set; }
+    [Parameter]
+    public int eventType { get; set; }
+
     private void newPage()
     {
         NavManager.NavigateTo("/eventpage");
+    }
+    private void FavoriteEvent()
+    {
+        if (star == "star_border")
+        {
+            star = "star";
+        }
+        else
+        {
+            star = "star_border";
+        }
     }
 }
