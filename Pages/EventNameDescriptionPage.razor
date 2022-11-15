@@ -1,10 +1,47 @@
 ﻿@page "/eventNameDescriptionPage"
 @inject NavigationManager NavManager
 
-<p>
-    Enter a name and description for the event.
-</p>
+<div class="col-xl-6 p-3">
+    <RadzenText>
+        Enter a name and description for the event.
+    </RadzenText>
+    <div class="verticalInputDiv">
+        <RadzenLabel Component="EventName" Text="Name" />
+        <RadzenTextBox Name="EventName" @bind-Value=name Style="border: 2px solid #066274" />
+    </div>
+    <div class="verticalInputDiv">
+        <RadzenLabel Component="EventDescription" Text="Description" />
+        <RadzenTextArea Name="EventDescription" @bind-Value=description Rows="4" Style="border: 2px solid #066274" />
+    </div>
+    
+    <div class="horizontalButtonDiv">
+        <RadzenButton Style="background-color: #066274;">
+            Back
+        </RadzenButton>
+        <RadzenButton Style="background-color: #066274;">
+            Continue
+        </RadzenButton>
+    </div>
+</div>
+
+<style>
+    .verticalInputDiv {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: start;
+        margin-top: 5%;
+        color: #066274;
+    }
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+</style>
 
 @code {
-
+    string name = "";
+    string description = "";
 }
