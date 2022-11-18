@@ -1,7 +1,31 @@
 ﻿@page "/uploadEventImagePage"
 @inject NavigationManager NavManager
 
-<p>Upload Event Image Page</p>
+<div>
+    <RadzenText>
+        Upload an image to represent the new event.
+    </RadzenText>
+    <RadzenButton>
+        <p>upload</p>
+    </RadzenButton>
+    <div class="horizontalButtonDiv">
+        <RadzenButton Style="background-color: #066274;">
+            Back
+        </RadzenButton>
+        <RadzenButton Style="background-color: #066274;">
+            Continue
+        </RadzenButton>
+    </div>
+</div>
+
+<style>
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+</style>
 
 @code {
 
