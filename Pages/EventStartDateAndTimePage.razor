@@ -1,10 +1,65 @@
 ﻿@page "/eventStartDateAndTimePage"
 @inject NavigationManager NavManager
 
-<p>
-    Event Start Date And Time Page
-</p>
+<div>
+    <RadzenText>
+        Select the start date and time of the event.
+    </RadzenText>
+    <div>
+        <RadzenLabel Component="EventDate" Text="Date:" Style="color: #066274" />
+        <div class="dateDropdowns">
+            <RadzenDropDown TValue="string"/>
+            <RadzenDropDown TValue="string"/>
+            <RadzenDropDown TValue="string"/>
+        </div>
+    </div>
+    <div>
+        <RadzenLabel Component="EventTime" Text="Time:" Style="color: #066274"/>
+        <div class="timeDropdowns">
+            <RadzenDropDown TValue="string" />
+            <RadzenDropDown TValue="string" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .dateDropdowns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .timeDropdowns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+</style>
 
 @code {
+    int day = 1, month = 1, year = 0, hour = 0, minute = 0;
 
+    IEnumerable<int> dayList = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
+    IEnumerable<int> monthList = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
+    IEnumerable<int> yearList = new int[] {};
+    int[] shortMonths = new int[]{4,6,9,11};
+
+    protected override void OnInitialized()
+    {
+        if (shortMonths.Contains(month)) //month has 30 days
+        {
+            dayList = dayList.Where(i => i < 31).ToList();
+        }else if (month == 2) //month is Febuary (has 28 days)
+        {
+            dayList = dayList.Where(i => i < 29).ToList();
+        }
+    }
+
+    DateTime getDateTime()
+    {
+        string dayString = day > 9 ? day.ToString() : "0" + day;
+        string monthString = month > 9 ? month.ToString() : "0" + month;
+        string hourString = hour > 9 ? hour.ToString() : "0" + hour;
+        string minuteString = minute > 9 ? minute.ToString() : "0" + minute;
+        return DateTime.Parse(dayString + "/" + monthString + "/" + year + " " + hourString + ":" + minuteString);
+    }
 }
