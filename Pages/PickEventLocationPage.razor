@@ -1,8 +1,42 @@
 ﻿@page "/pickEventLocationPage"
 @inject NavigationManager NavManager
 
-<p>Pick Event Location Page</p>
+<div>
+    <RadzenText>
+        Enter the address of the event.
+    </RadzenText>
+    <div class="verticalInputDiv">
+        <RadzenLabel Component="EventAddress" Text="Address" />
+        <RadzenTextBox Name="EventAddress" @bind-Value=address Style="border: 2px solid #066274" />
+    </div>
+
+    <div class="horizontalButtonDiv">
+        <RadzenButton Style="background-color: #066274;">
+            Back
+        </RadzenButton>
+        <RadzenButton Style="background-color: #066274;">
+            Continue
+        </RadzenButton>
+    </div
+</div>
+
+<style>
+    .verticalInputDiv {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: start;
+        margin-top: 5%;
+        color: #066274;
+    }
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+</style>
 
 @code {
-
+    string address = "";
 }
