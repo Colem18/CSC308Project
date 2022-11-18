@@ -36,8 +36,8 @@
     <nav class="flex-column">
         @page "/panelmenu"
         <RadzenCard Style="width:auto" Class="mx-auto">
-            <RadzenPanelMenu Style="width:auto">
-                <RadzenPanelMenuItem Style="width:auto" Text="Home" Icon="home" Path="home" />
+            <RadzenPanelMenu Style="width:auto;" Click="@(() => ToggleNavMenu())">
+                <RadzenPanelMenuItem Style="width:auto" Text="Home" Icon="home" Path="home"/>
                 <RadzenPanelMenuItem Style="width: auto" Text="Post Event" Icon="add" Path ="createEventPage"/>
                 <RadzenPanelMenuItem Style="width: auto" Text="Favorites" Icon="star" Path="favoritesPage" />
                 <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="profileLogin" />
@@ -72,6 +72,14 @@
     void OnClickLogo()
     {
         NavManager.NavigateTo("/");
+
+        if (collapseNavMenu == false)
+        {
+            ToggleNavMenu();
+        }
+
+
+
     }
 }
 

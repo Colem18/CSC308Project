@@ -4,10 +4,6 @@
     flex-direction: column;
 }
 
-.butto
-
-
-
 main {
     flex: 1;
     justify-content: safe-center;
@@ -34,9 +30,6 @@ main {
     color: white;
 
 }
-    h1 {
-        color: white;
-    }
 
     .top-row ::deep a, .top-row ::deep .btn-link {
         white-space: nowrap;

@@ -8,18 +8,20 @@
     Welcome to your new app.
 
     <SurveyPrompt Title="How is Blazor working for you?" />*@
-<div class="flex-container" style=" justify-content: center; align-items: center;">
+<div class="flex-container">
     <img src="img/logo_white.png" alt="Event Logo" width="500" height="500" />
-
-    <RadzenButton Style="display: flex; flex-direction: column; background-color: #066274; Size =ButtonSize.Large;"
-                  Text="Continue As Guest"
-                  Click="@OnClickGuest"> </RadzenButton>
+    <div class="button">
+        <RadzenButton Style="display: flex; flex-direction: column; background-color: #066274; Size =ButtonSize.XL;"
+                      Text="Continue As Guest"
+                      Click="@OnClickGuest"> </RadzenButton>
         <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274; Size =ButtonSize.Large;"
                       Text="Login"
                       Click="@OnClickLogin"> </RadzenButton>
         <RadzenButton Style="display: flex; flex-direction: column; background-color: #066274; Size =ButtonSize.Large; "
                       Text="Create Account"
                       Click="@OnClickCreateAccount"> </RadzenButton>
+    </div>
+    
 
 </div>
 
