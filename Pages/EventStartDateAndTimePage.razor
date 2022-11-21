@@ -6,19 +6,27 @@
         Select the start date and time of the event.
     </RadzenText>
     <div>
-        <RadzenLabel Component="EventDate" Text="Date:" Style="color: #066274" />
+        <RadzenLabel Component="EventDate" Text="Date:" Style="color: #066274"/>
         <div class="dateDropdowns">
-            <RadzenDropDown TValue="string"/>
-            <RadzenDropDown TValue="string"/>
-            <RadzenDropDown TValue="string"/>
+            <RadzenDropDown TValue=int Data=@dayList @bind-Value=day/>
+            <RadzenDropDown TValue=int Data=@monthList @bind-Value=month/>
+            <RadzenDropDown TValue=int Data=@yearList @bind-Value=year/>
         </div>
     </div>
     <div>
         <RadzenLabel Component="EventTime" Text="Time:" Style="color: #066274"/>
         <div class="timeDropdowns">
-            <RadzenDropDown TValue="string" />
-            <RadzenDropDown TValue="string" />
+            <RadzenDropDown TValue=int Data=@hourList @bind-Value=hour/>
+            <RadzenDropDown TValue=int Data=@minuteList @bind-Value=minute/>
         </div>
+    </div>
+    <div class="horizontalButtonDiv">
+        <RadzenButton Style="background-color: #066274;">
+            Back
+        </RadzenButton>
+        <RadzenButton Style="background-color: #066274;">
+            Continue
+        </RadzenButton>
     </div>
 </div>
 
@@ -33,24 +41,84 @@
         flex-direction: row;
         justify-content: space-around;
     }
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
 </style>
 
 @code {
-    int day = 1, month = 1, year = 0, hour = 0, minute = 0;
+    int day, month, year, hour, minute;
 
-    IEnumerable<int> dayList = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
-    IEnumerable<int> monthList = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
-    IEnumerable<int> yearList = new int[] {};
+    List<int> dayList = new List<int>();
+    List<int> monthList = new List<int>();
+    List<int> yearList = new List<int>();
+    List<int> hourList = new List<int>();
+    List<int> minuteList = new List<int>();
     int[] shortMonths = new int[]{4,6,9,11};
 
     protected override void OnInitialized()
     {
+        initDayList();
+        initMonthList();
+        initYearList();
+        initHourList();
+        initMinuteList();
+    }
+
+    void initDayList()
+    {
+        day = DateTime.Today.Day;
+        int daysInMonth = 31;
         if (shortMonths.Contains(month)) //month has 30 days
         {
-            dayList = dayList.Where(i => i < 31).ToList();
-        }else if (month == 2) //month is Febuary (has 28 days)
+            daysInMonth = 30;
+        }
+        else if (month == 2) //month is Febuary (has 28 days)
         {
-            dayList = dayList.Where(i => i < 29).ToList();
+            daysInMonth = 28;
+        }
+        for(int i = 1; i <= daysInMonth; i++)
+        {
+            dayList.Add(i);
+        }
+    }
+
+    void initMonthList()
+    {
+        month = DateTime.Today.Month;
+        for(int i = 1; i <= 12; i++)
+        {
+            monthList.Add(i);
+        }
+    }
+
+    void initYearList()
+    {
+        year = DateTime.Today.Year;
+        for(int i = year; i <= year + 25; i++)
+        {
+            yearList.Add(i);
+        }
+    }
+
+    void initHourList()
+    {
+        hour = DateTime.Now.Hour;
+        for(int i = 0; i <= 23; i++)
+        {
+            hourList.Add(i);
+        }
+    }
+
+    void initMinuteList()
+    {
+        minute = DateTime.Now.Minute;
+        for(int i = 0; i <= 59; i++)
+        {
+            minuteList.Add(i);
         }
     }
 
