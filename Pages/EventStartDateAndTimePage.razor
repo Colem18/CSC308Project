@@ -8,16 +8,16 @@
     <div>
         <RadzenLabel Component="EventDate" Text="Date:" Style="color: #066274"/>
         <div class="dateDropdowns">
-            <RadzenDropDown TValue=int Data=@dayList @bind-Value=day/>
-            <RadzenDropDown TValue=int Data=@monthList @bind-Value=month/>
-            <RadzenDropDown TValue=int Data=@yearList @bind-Value=year/>
+            <RadzenDropDown TValue=int Data=@dayList @bind-Value=day Placeholder="Day"/>
+            <RadzenDropDown TValue=int Data=@monthList @bind-Value=month Placeholder="Month"/>
+            <RadzenDropDown TValue=int Data=@yearList @bind-Value=year Placeholder="Year"/>
         </div>
     </div>
     <div>
         <RadzenLabel Component="EventTime" Text="Time:" Style="color: #066274"/>
         <div class="timeDropdowns">
-            <RadzenDropDown TValue=int Data=@hourList @bind-Value=hour/>
-            <RadzenDropDown TValue=int Data=@minuteList @bind-Value=minute/>
+            <RadzenDropDown TValue=int Data=@hourList @bind-Value=hour Placeholder="Hour"/>
+            <RadzenDropDown TValue=int Data=@minuteList @bind-Value=minute Placeholder="Minute"/>
         </div>
     </div>
     <div class="horizontalButtonDiv">
