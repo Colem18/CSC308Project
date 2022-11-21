@@ -6,10 +6,18 @@
 
 main {
     flex: 1;
+    justify-content: safe-center;
 }
 
 .sidebar {
     background-image: linear-gradient(180deg, rgb(6, 98, 116) 70%, #066274 70%);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
 .top-row {
@@ -19,6 +27,8 @@ main {
     height: 3.5rem;
     display: flex;
     align-items: center;
+    color: white;
+
 }
 
     .top-row ::deep a, .top-row ::deep .btn-link {
@@ -37,18 +47,27 @@ main {
     }
 
 .navbar-brand {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding-top: 0;
     line-height: inherit;
     white-space: nowrap;
-    .top-row {
+    color: white;
+    .top-row
+{
     background-color: #066274;
     border-bottom: 1px solid #066274;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     height: 9.375rem;
     display: flex;
-    align-items: center;
-    }
+    color: white;
+    h1
+{
+    color: white;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+}
 
 a:link {
     color: white;
@@ -110,5 +129,16 @@ a:link {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        color: #fff;
+        font-size: 1.2rem;
+        background: #00008b;
+    }
+
 }
 
