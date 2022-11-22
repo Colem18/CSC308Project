@@ -1,37 +1,44 @@
 ﻿@page "/pickEventType"
 @inject NavigationManager NavManager
 
-<div class="col-xl-6 p-3">
-    <RadzenText>
+
+<div class="flex-container">
+    <h3>
         Select the type of event you want to create.
-    </RadzenText>
-    <div class="horizontalDiv">
-        <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
-            Type 1
-        </RadzenButton>
-        <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
-            Type 2
-        </RadzenButton>
+    </h3>
+    <div class="flex-container row">
+        <button class="btn roma">
+            TYPE 1
+        </button>
+        <button class="btn roma">
+            TYPE 2
+        </button>
+
     </div>
-    <div class="horizontalDiv">
-        <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
-            Type 3
-        </RadzenButton> 
-        <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
-            Type 4
-        </RadzenButton>
+    <div class="flex-container row">
+        <button class="btn roma">
+            TYPE 3
+        </button>
+        <button class="btn roma">
+            TYPE 4
+        </button>
     </div>
+    <div class="flex-container row">
+        <button class="btn continue">
+            CONTINUE
+        </button>
+       
+    </div>
+    @*<div class="horizontalDiv">
+            <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
+                Type 3
+            </RadzenButton>
+            <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
+                Type 4
+            </RadzenButton>
+        </div>*@
 </div>
 
-<style>
-    .horizontalDiv{
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        padding-top: 10%
+    @code {
+
     }
-</style>
-
-@code {
-
-}
