@@ -1,21 +1,78 @@
 ﻿@page "/createAccount"
+@using Newtonsoft.Json;
+@using System.Net.Http;
+@using System;
+@using System.Text;
 
-<div class="col-xl-6 p-3">
+@inject NavigationManager NavManager;
+
+@inject Data.HttpRestService _httprestservice;
+
+<div class="col-xl-6 p-3" style="display: flex; flex-direction: column">
     <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
         Create Account
     </RadzenText>
     <RadzenTemplateForm Data=@("SimpleLogin") Action="http://www.google.com">
         <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login=@(args => OnLogin(args, "Simple login")) />
     </RadzenTemplateForm>
+    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top: 10px">
+        <RadzenLabel Component="userEmail" Text="Email:" style="padding-right: 5px"/>
+        <RadzenTextBox Name="UserEmail" @bind-Value=email Style="border: 2px solid #066274" />
+    </div>
+    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top; 10px%">
+        <RadzenText style="padding-right: 5px">isAdmin</RadzenText>
+        <RadzenCheckBox Value=isAdmin />
+    </div>
 </div>
 
 @code {
     string userName = "admin";
     string password = "admin";
-
-    void OnLogin(LoginArgs args, string name)
+    string email = "email";
+    bool isAdmin = true;
+    string error = "";
+    public class Account
     {
+        public string username { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public bool is_admin { get; set; }
+    }
+    public async Task OnLogin(LoginArgs args, string name)
+    {
+        Account acc = new Account();
+        acc.username = args.Username;
+        acc.password = args.Password;
+        acc.email = email;
+        acc.is_admin = isAdmin;
+
         Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
+        Task newAcc = CreateAccountAsync(acc, true);
+        await newAcc;
+    }
+    public async Task CreateAccountAsync(Account acc, bool isNewItem = false)
+    {
+        Uri uri = new Uri(string.Format("https://308projectlogin.azurewebsites.net/api/account", string.Empty));
+
+        try
+        {
+            //string json = JsonSerialize.Serialize<TodoItem>(item, _serializerOptions);
+            string json = JsonConvert.SerializeObject(acc, Formatting.Indented);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            if (isNewItem)
+                response = await _httprestservice._client.PostAsync(uri, content);
+            else
+                response = await _httprestservice._client.PutAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+                Console.WriteLine(@"\tAccount successfully saved.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
     }
 
     //void OnRegister(string name)
@@ -27,4 +84,5 @@
     //{
     //    Console.WriteLine($"{name} -> ResetPassword for user: {value}");
     //}
+}
 }

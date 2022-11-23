@@ -1,10 +1,133 @@
 ﻿@page "/eventStartDateAndTimePage"
 @inject NavigationManager NavManager
 
-<p>
-    Event Start Date And Time Page
-</p>
+<div>
+    <RadzenText>
+        Select the start date and time of the event.
+    </RadzenText>
+    <div>
+        <RadzenLabel Component="EventDate" Text="Date:" Style="color: #066274"/>
+        <div class="dateDropdowns">
+            <RadzenDropDown TValue=int Data=@dayList @bind-Value=day Placeholder="Day"/>
+            <RadzenDropDown TValue=int Data=@monthList @bind-Value=month Placeholder="Month"/>
+            <RadzenDropDown TValue=int Data=@yearList @bind-Value=year Placeholder="Year"/>
+        </div>
+    </div>
+    <div>
+        <RadzenLabel Component="EventTime" Text="Time:" Style="color: #066274"/>
+        <div class="timeDropdowns">
+            <RadzenDropDown TValue=int Data=@hourList @bind-Value=hour Placeholder="Hour"/>
+            <RadzenDropDown TValue=int Data=@minuteList @bind-Value=minute Placeholder="Minute"/>
+        </div>
+    </div>
+    <div class="horizontalButtonDiv">
+        <RadzenButton Style="background-color: #066274;">
+            Back
+        </RadzenButton>
+        <RadzenButton Style="background-color: #066274;">
+            Continue
+        </RadzenButton>
+    </div>
+</div>
+
+<style>
+    .dateDropdowns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .timeDropdowns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+</style>
 
 @code {
+    int day, month, year, hour, minute;
 
+    List<int> dayList = new List<int>();
+    List<int> monthList = new List<int>();
+    List<int> yearList = new List<int>();
+    List<int> hourList = new List<int>();
+    List<int> minuteList = new List<int>();
+    int[] shortMonths = new int[]{4,6,9,11};
+
+    protected override void OnInitialized()
+    {
+        initDayList();
+        initMonthList();
+        initYearList();
+        initHourList();
+        initMinuteList();
+    }
+
+    void initDayList()
+    {
+        day = DateTime.Today.Day;
+        int daysInMonth = 31;
+        if (shortMonths.Contains(month)) //month has 30 days
+        {
+            daysInMonth = 30;
+        }
+        else if (month == 2) //month is Febuary (has 28 days)
+        {
+            daysInMonth = 28;
+        }
+        for(int i = 1; i <= daysInMonth; i++)
+        {
+            dayList.Add(i);
+        }
+    }
+
+    void initMonthList()
+    {
+        month = DateTime.Today.Month;
+        for(int i = 1; i <= 12; i++)
+        {
+            monthList.Add(i);
+        }
+    }
+
+    void initYearList()
+    {
+        year = DateTime.Today.Year;
+        for(int i = year; i <= year + 25; i++)
+        {
+            yearList.Add(i);
+        }
+    }
+
+    void initHourList()
+    {
+        hour = DateTime.Now.Hour;
+        for(int i = 0; i <= 23; i++)
+        {
+            hourList.Add(i);
+        }
+    }
+
+    void initMinuteList()
+    {
+        minute = DateTime.Now.Minute;
+        for(int i = 0; i <= 59; i++)
+        {
+            minuteList.Add(i);
+        }
+    }
+
+    DateTime getDateTime()
+    {
+        string dayString = day > 9 ? day.ToString() : "0" + day;
+        string monthString = month > 9 ? month.ToString() : "0" + month;
+        string hourString = hour > 9 ? hour.ToString() : "0" + hour;
+        string minuteString = minute > 9 ? minute.ToString() : "0" + minute;
+        return DateTime.Parse(dayString + "/" + monthString + "/" + year + " " + hourString + ":" + minuteString);
+    }
 }

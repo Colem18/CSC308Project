@@ -1,5 +1,8 @@
-﻿@page "/profileLogin"
-@inject NavigationManager NavManager
+﻿@using System.Net.Http;
+@using Newtonsoft.Json;
+@page "/profileLogin"
+@inject NavigationManager NavManager;
+@inject Data.HttpRestService _httprestservice;
 
 <h1>Profile Login</h1>
 
@@ -11,6 +14,7 @@
         <RadzenLogin AllowResetPassword="false"
                      Login=@(args => OnLogin(args, "Login with register"))
                      Register=@(args => OnRegister("Login with register")) />
+        <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
     </RadzenTemplateForm>
     <RadzenButton Style="display:flex; flex-direction:column"
                   Text="Forgot Password"
@@ -19,12 +23,41 @@
 </div>
 
 @code {
+    public class Account
+    {
+        public string id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public bool is_admin { get; set; }
+    }
     string userName = "admin";
     string password = "admin";
-
-    void OnLogin(LoginArgs args, string name)
+    string error = "";
+    public List<Account> Items = new List<Account>();
+    public List<Account> Accounts = new List<Account>();
+    string AccountJSON = "[\n {\n    \"id\": \"9b142643b8dd49beb1c586f7cf3b07b2\",\n    \"username\": \"Dev\",\n    \"password\": \"test123\",\n    \"email\": \"dsmasrani@gmail.com\",\n    \"is_admin\": true\n}, \n {\n    \"id\": \"691426a124789beb1c586f7cf3b07b2\",\n    \"username\": \"Cole\",\n    \"password\": \"Cole\",\n    \"email\": \"cmori18@gmail.com\",\n    \"is_admin\": true\n} \n]";
+    public async Task OnLogin(LoginArgs args, string name)
+    //async Task
     {
+        Task<List<Account>> LIST = GetAccountsAsync();
+        List<Account> AccountList = await LIST;
+        Console.WriteLine(AccountList);
+        //Items = JsonConvert.DeserializeObject<List<Account>>(AccountJSON);
         Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
+        @foreach (var Account in AccountList)
+            {
+                Console.WriteLine(Account.username);
+                Console.WriteLine(args.Username);
+                if((Account.username == args.Username) && (Account.password == args.Password))
+                {
+                    error = "Successful Login";
+                    break;
+                } else
+                {
+                    error = "Failed Login";
+                }
+            }
     }
 
     void OnRegister(string name)
@@ -41,4 +74,26 @@
     {
         NavManager.NavigateTo("/forgotpassword");
     }
+    public async Task<List<Account>> GetAccountsAsync()
+    {
+
+        Uri uri = new Uri(string.Format("https://308projectlogin.azurewebsites.net/api/account", string.Empty));
+        try
+        {
+            HttpResponseMessage response = await _httprestservice._client.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                //Items = JsonSerializer.Deserialize(content,_httprestservice._serializerOptions);
+                Items = JsonConvert.DeserializeObject<List<Account>>(content);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
+
+        return Items;
+    }
+
 }

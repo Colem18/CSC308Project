@@ -7,9 +7,29 @@
     background-color: rgba(6, 98, 116, .4);
 }
 
-.navbar-brand {
+/*.navbar-brand {
     font-size: 1.1rem;
+}*/
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    padding-top: 0;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
+    .top-row
+
+{
+    background-color: #066274;
+    border-bottom: 1px solid #066274;
+    align-items: center;
+    justify-content: center;
+    height: 9.375rem;
+    display: flex;
+    color: white;
 }
+
 
 .oi {
     width: 2rem;
@@ -57,7 +77,7 @@
 
     .collapse {
         /* Never collapse the sidebar for wide screens */
-        display: block;
+        display: none;
     }
 }
 
