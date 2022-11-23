@@ -15,12 +15,12 @@
     <RadzenTemplateForm Data=@("SimpleLogin") Action="http://www.google.com">
         <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login=@(args => OnLogin(args, "Simple login")) />
     </RadzenTemplateForm>
-    <div style="display: flex; flex-direction: row">
-        <RadzenLabel Component="userEmail" Text="Email:" />
+    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top: 10px">
+        <RadzenLabel Component="userEmail" Text="Email:" style="padding-right: 5px"/>
         <RadzenTextBox Name="UserEmail" @bind-Value=email Style="border: 2px solid #066274" />
     </div>
-    <div style="display: flex; flex-direction: row">
-        <RadzenText>isAdmin</RadzenText>
+    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top; 10px%">
+        <RadzenText style="padding-right: 5px">isAdmin</RadzenText>
         <RadzenCheckBox Value=isAdmin />
     </div>
 </div>
