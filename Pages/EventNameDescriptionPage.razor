@@ -18,7 +18,7 @@
         <RadzenButton Style="background-color: #066274;">
             Back
         </RadzenButton>
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@nextPage" Style="background-color: #066274;">
             Continue
         </RadzenButton>
     </div>
@@ -55,4 +55,9 @@
 @code {
     string name = "";
     string description = "";
+
+    private void nextPage()
+    {
+        NavManager.NavigateTo("/pickEventLocationPage");
+    }
 }

@@ -1,7 +1,7 @@
 ﻿@page "/pickEventLocationPage"
 @inject NavigationManager NavManager
 
-<div>
+<div class="flex-container">
     <RadzenText>
         Enter the address of the event.
     </RadzenText>
@@ -21,6 +21,16 @@
 </div>
 
 <style>
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        /*        padding-left: 5%;
+        padding-right: 5%;*/
+        padding-bottom: 5%;
+    }
     .verticalInputDiv {
         display: flex;
         flex-direction: column;
