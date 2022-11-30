@@ -1,4 +1,4 @@
-﻿@page "/home"
+@page "/home"
 
 @using Radzen
 @using Newtonsoft.Json;
@@ -6,7 +6,8 @@
 @inject NavigationManager NavManager;
 @inject Data.HttpRestService _httprestservice;
 
-<h1 style="text-align:center;">Welcome to Roma Events!</h1>
+<div class="flex-container">
+    <h1 style="text-align:center;">Welcome to Roma Events!</h1>
 
 <p><em>@loading</em></p>
 
@@ -22,6 +23,10 @@ else
                    eventImageURL="@Event.url" eventType="@Event.type"></EventCard>
     }
 }
+
+
+</div>
+
 
 
 @code {

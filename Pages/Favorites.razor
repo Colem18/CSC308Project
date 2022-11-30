@@ -1,28 +1,26 @@
-﻿@using System.Net.Http;
+
+@using System.Net.Http;
 @using Newtonsoft.Json;
 @using Data;
 @page "/favoritesPage"
 @inject NavigationManager NavManager;
 @inject Account _account;
 
-<div class="text-center">
+<div class="flex-container">
     <h1>Favorites</h1>
+    <h3>You currently do not have any saved events</h3>
+    <img src="img/EmptyFavorites.png" alt="Empty Favorites" width="747.075" height="834.225" />
+    <h3 class="mt-3" style="text-align:center;">@message</h3>
+    <a href="" target="_blank" @onclick="OnLogin">Login or Create an Account</a>
 </div>
 
-<div class="container p-3 my-3 border">
-    <div class="row">
-        <div class="col-xl-6">
-            <h3 class="mt-3" style="text-align:center;">You currently do not have any saved events</h3>
-            <RadzenImage Path="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/480px-Gold_Star.svg.png?20140420092753" Style="width: 60%; display: block; margin-left: auto; margin-right: auto; width: 50%;" />
-        </div>
-        <div class="col-xl-6">
-            <h3 class="mt-3" style="text-align:center;">@message</h3>
-        </div>
-    </div>
-</div>
 @code {
     string message = "Loading...";
     Account loggedIn;
+    private void OnLogin()
+    {
+        NavManager.NavigateTo("/profileLogin");
+    }
     protected override async Task OnInitializedAsync()
     {
         Console.WriteLine("THIS IS RUNNING");

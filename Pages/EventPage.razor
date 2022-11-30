@@ -1,7 +1,8 @@
 ﻿@page "/eventpage"
 
+<div class="flex-container">
     <h2 style="text-align: center;">Shari Vari</h2>
-    <RadzenImage Path="https://i.imgur.com/ditrT1U.png" Class="float-left mr-3" Style="width: 100%; border-radius: 2%;" />
+    <RadzenImage Path="https://i.imgur.com/ditrT1U.png" Class="float-left mr-3" Style="width: 50%; border-radius: 2%;" />
     <br />
     <hr />
     <br />
@@ -20,15 +21,22 @@
         ed mollis vehicula. Sed pretium vulputate est, at egestas libero efficitur a. Ut ornare, lacus sed congue egestas, enim ex dapibus
         nulla
     </p>
-    <div class="mt-3"> </div>
-    <RadzenButton Click="newPage" Text="Buy Tickets" ButtonStyle="ButtonStyle.Primary" Style="display: inline; width: 30%; border-radius: 2%; margin: auto;" />
-    <RadzenButton Click="FavoriteEvent" Text="@Fav" ButtonStyle="ButtonStyle.Primary" Style="display: inline; width: 40%; border-radius: 2%; margin: auto;" />
+    <div class="button">
+        <RadzenButton Click="newPage" Text="Buy Tickets" Size="ButtonSize.Large" 
+                      Style="display: flex; background-color: #066274; width: 250px; height: 50px; border-radius: 2%; font-size:large ; text-align:center; justify-content: center;" />
 
+    </div>
+    <div class="button">
+        <RadzenButton Click="FavoriteEvent" Text="@Fav" Size="ButtonSize.Large"
+                      Style="display: flex; background-color: #066274; width: 250px; height: 50px; border-radius: 2%; font-size: large; text-align: center; justify-content: center;" />
+    </div>
+</div>
+    
     @code {
         public string Fav = "Favorite Event";
         private void newPage()
         {
-
+           
         }
         private void FavoriteEvent()
         {

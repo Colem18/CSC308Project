@@ -6,9 +6,10 @@
 @inject Data.HttpRestService _httprestservice;
 @inject Account _account; 
 
-<h1>Profile Login</h1>
 
-<div class="col-xl-6 p-3">
+
+<div class="flex-container">
+    <h1>Profile Login</h1>
     <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
         Login with register
     </RadzenText>
@@ -18,7 +19,7 @@
                      Register=@(args => OnRegister("Login with register")) />
         <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
     </RadzenTemplateForm>
-    <RadzenButton Style="display:flex; flex-direction:column"
+    <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274;" Size="ButtonSize.Large"
                   Text="Forgot Password"
                   Icon="help"
                   Click="@OnForgotPassword"> </RadzenButton>
