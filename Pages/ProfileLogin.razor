@@ -1,15 +1,17 @@
-﻿@using System.Net.Http;
+﻿@page "/profileLogin"
+
+@using System.Net.Http;
 @using Newtonsoft.Json;
 @using Data;
-@page "/profileLogin"
+
 @inject NavigationManager NavManager;
 @inject Data.HttpRestService _httprestservice;
-@inject Account _account; 
+@inject Account _account;
 
 
+<h1>Profile Login</h1>
 
-<div class="flex-container">
-    <h1>Profile Login</h1>
+<div class="col-xl-6 p-3">
     <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
         Login with register
     </RadzenText>
@@ -19,7 +21,7 @@
                      Register=@(args => OnRegister("Login with register")) />
         <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
     </RadzenTemplateForm>
-    <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274;" Size="ButtonSize.Large"
+    <RadzenButton Style="display:flex; flex-direction:column"
                   Text="Forgot Password"
                   Icon="help"
                   Click="@OnForgotPassword"> </RadzenButton>
@@ -41,26 +43,27 @@
         //Items = JsonConvert.DeserializeObject<List<Account>>(AccountJSON);
         Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
         @foreach (var Account in AccountList)
+        {
+            Console.WriteLine(Account.username);
+            Console.WriteLine(args.Username);
+            // Store MD5 hashed password and compare the hash, so that the password is encryped, and return 200OK rather than items.
+            // Make a new API called login with just the SHA256 SUM and the username and it returns if its okay or not. Do not do it client side.
+            if ((Account.username == args.Username) && (Account.password == args.Password))
             {
-                Console.WriteLine(Account.username);
-                Console.WriteLine(args.Username);
-                // Store MD5 hashed password and compare the hash, so that the password is encryped, and return 200OK rather than items.
-                // Make a new API called login with just the SHA256 SUM and the username and it returns if its okay or not. Do not do it client side.
-                if((Account.username == args.Username) && (Account.password == args.Password))
-                {
-                    error = "Successful Login";
-                    _account.id = Account.id;
-                    _account.username = Account.username;
-                    _account.password = Account.password;
-                    _account.email = Account.email;
-                    _account.is_admin = Account.is_admin;
-                    _account.following_list = Account.following_list;
-                    break;
-                } else
-                {
-                    error = "Failed Login";
-                }
+                error = "Successful Login";
+                _account.id = Account.id;
+                _account.username = Account.username;
+                _account.password = Account.password;
+                _account.email = Account.email;
+                _account.is_admin = Account.is_admin;
+                _account.following_list = Account.following_list;
+                break;
             }
+            else
+            {
+                error = "Failed Login";
+            }
+        }
     }
 
     void OnRegister(string name)

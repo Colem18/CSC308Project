@@ -3,6 +3,7 @@
 @using Radzen
 @using Newtonsoft.Json;
 @using Data;
+
 @inject NavigationManager NavManager;
 @inject Data.HttpRestService _httprestservice;
 
@@ -20,7 +21,7 @@ else
     @foreach (var Event in EventList)
     {
         <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
-                   eventImageURL="@Event.url" eventType="@Event.type"></EventCard>
+                   eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
     }
 }
 
@@ -33,12 +34,20 @@ else
     string loading = "Loading...";
     private List<Event> EventList = new List<Event>();
     public List<Event> Items = new List<Event>();
+
+
+
+
     protected override async Task OnInitializedAsync()
     {
         Task<List<Event>> LIST = GetEventsAsync();
-        List<Event> EventList = await LIST;
+        EventList = await LIST;
         loading = "Sucessfully Loaded";
+        //await InvokeAsync(() => StateHasChanged());
     }
+
+
+
     /**protected override async Task OnInitializedAsync()
     {
         string output = "[\n  {\n    \"eventName\": \"Shari Vari\",\n    \"eventDateTime\": \"2022-10-15T00:30:50\",\n    \"eventAddress\": \"Via de' Nari, 14, 00186 Roma RM\",\n    \"eventDescription\": \"Lorum Ipsum Dolor\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 2\n  },\n  {\n    \"eventName\": \"Cash Club\",\n    \"eventDateTime\": \"2022-10-10T07:30:50\",\n    \"eventAddress\": \"Via Agostino Bertani, 20 00186 Roma RM\",\n    \"eventDescription\": \"Lorup Ipsum My Penis\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 1\n  }\n]";

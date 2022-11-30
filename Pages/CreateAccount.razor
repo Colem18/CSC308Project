@@ -3,10 +3,13 @@
 @using System.Net.Http;
 @using System;
 @using System.Text;
+@using Data;
+@using Radzen;
 
 @inject NavigationManager NavManager;
 
 @inject Data.HttpRestService _httprestservice;
+@inject Account _account;
 
 <div class="col-xl-6 p-3" style="display: flex; flex-direction: column">
     <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
@@ -16,13 +19,13 @@
         <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login=@(args => OnLogin(args, "Simple login")) />
     </RadzenTemplateForm>
     <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top: 10px">
-        <RadzenLabel Component="userEmail" Text="Email:" style="padding-right: 5px"/>
+        <RadzenLabel Component="userEmail" Text="Email:" style="padding-right: 5px" />
         <RadzenTextBox Name="UserEmail" @bind-Value=email Style="border: 2px solid #066274" />
     </div>
-    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top; 10px%">
-        <RadzenText style="padding-right: 5px">isAdmin</RadzenText>
-        <RadzenCheckBox Value=isAdmin />
-    </div>
+<div style="display: flex; flex-direction: row; padding-left: 30%; padding-top; 10px%">
+    <RadzenText style="padding-right: 5px">isAdmin</RadzenText>
+    <RadzenCheckBox Value=isAdmin />
+</div>
 </div>
 
 @code {

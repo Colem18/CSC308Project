@@ -11,4 +11,5 @@ namespace eventsApp.Data
         public string url { get; set; }
         public int type { get; set; }
     }
+   
 }

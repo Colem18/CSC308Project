@@ -24,6 +24,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<HttpRestService>();
         builder.Services.AddSingleton<Account>();
         builder.Services.AddSingleton<Event>();
+		builder.Services.AddSingleton<Session>();
         return builder.Build();
 	}
 }

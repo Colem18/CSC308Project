@@ -1,8 +1,11 @@
 @page "/eventcard"
 @inject NavigationManager NavManager
- 
-@using Radzen
-@using Microsoft.Maui.Graphics
+
+@using Radzen;
+@using Data;
+@using Microsoft.Maui.Graphics;
+
+@inject Session _session;
 
 <style>
     .flexColumn {
@@ -46,7 +49,8 @@
 
 @code {
     public string star = "star_border";
-
+    [Parameter]
+    public string eventId { get; set; }
     [Parameter]
     public string eventName { get; set; }
     [Parameter]
@@ -62,6 +66,7 @@
 
     private void newPage()
     {
+        _session.id = eventId;
         NavManager.NavigateTo("/eventpage");
     }
     private void FavoriteEvent()
