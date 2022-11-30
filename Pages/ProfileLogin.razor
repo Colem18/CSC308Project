@@ -17,11 +17,20 @@
     </RadzenText>
     <RadzenTemplateForm Data=@("LoginWithRegister")>
         <RadzenLogin AllowResetPassword="false"
+<<<<<<< HEAD
                      Login=@(args => OnLogin(args, "Login with register"))
                      Register=@(args => OnRegister("Login with register")) />
         <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
     </RadzenTemplateForm>
     <RadzenButton Style="display:flex; flex-direction:column"
+=======
+                     Login=@(args =>
+            OnLogin(args, "Login with register"))
+            Register=@(args => OnRegister("Login with register")) />
+            <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
+</RadzenTemplateForm>
+    <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274;" Size="ButtonSize.Large"
+>>>>>>> fb905e108a251f0f98e255f7364e0e6314383296
                   Text="Forgot Password"
                   Icon="help"
                   Click="@OnForgotPassword"> </RadzenButton>
@@ -50,6 +59,7 @@
             // Make a new API called login with just the SHA256 SUM and the username and it returns if its okay or not. Do not do it client side.
             if ((Account.username == args.Username) && (Account.password == args.Password))
             {
+<<<<<<< HEAD
                 error = "Successful Login";
                 _account.id = Account.id;
                 _account.username = Account.username;
@@ -58,6 +68,27 @@
                 _account.is_admin = Account.is_admin;
                 _account.following_list = Account.following_list;
                 break;
+=======
+                Console.WriteLine(Account.username);
+                Console.WriteLine(args.Username);
+                // Store MD5 hashed password and compare the hash, so that the password is encryped, and return 200OK rather than items.
+                // Make a new API called login with just the SHA256 SUM and the username and it returns if its okay or not. Do not do it client side.
+                if((Account.username == args.Username) && (Account.password == args.Password))
+                {
+                    error = "Successful Login";
+                    _account.id = Account.id;
+                    _account.username = Account.username;
+                    _account.password = Account.password;
+                    _account.email = Account.email;
+                    _account.is_admin = Account.is_admin;
+                    _account.following_list = Account.following_list;
+                    NavManager.NavigateTo("/home");
+                    break;
+                } else
+                {
+                    error = "Failed Login";
+                }
+>>>>>>> fb905e108a251f0f98e255f7364e0e6314383296
             }
             else
             {
