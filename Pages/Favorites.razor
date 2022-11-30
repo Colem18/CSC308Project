@@ -1,4 +1,9 @@
-﻿@page "/favoritesPage"
+﻿@using System.Net.Http;
+@using Newtonsoft.Json;
+@using Data;
+@page "/favoritesPage"
+@inject NavigationManager NavManager;
+@inject Account _account;
 
 <div class="text-center">
     <h1>Favorites</h1>
@@ -11,7 +16,42 @@
             <RadzenImage Path="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/480px-Gold_Star.svg.png?20140420092753" Style="width: 60%; display: block; margin-left: auto; margin-right: auto; width: 50%;" />
         </div>
         <div class="col-xl-6">
-            <h3 class="mt-3" style="text-align:center;">Log in to keep track of all your favorites so you don't miss out!</h3>
+            <h3 class="mt-3" style="text-align:center;">@message</h3>
         </div>
     </div>
 </div>
+@code {
+    string message = "Loading...";
+    Account loggedIn;
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("THIS IS RUNNING");
+        loggedIn = _account;
+        if(loggedIn == null)
+        {
+            Console.WriteLine("Loggedin is Null");
+        }
+        if(loggedIn != null)
+        {
+            Console.WriteLine(loggedIn.id);
+            Console.WriteLine(loggedIn.following_list);
+        }
+
+        if(loggedIn.id == null)
+        {
+            message = "Log in to keep track of all your favorites so you don't miss out!";
+        }
+        else if(loggedIn.following_list == null)
+        {
+            message = "";
+        }
+        else if (loggedIn.following_list.Length > 0)
+        {
+            NavManager.NavigateTo("/favoriteswithcard");
+        } else
+        {
+            message = "error";
+        }
+    }
+
+}

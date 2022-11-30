@@ -1,8 +1,10 @@
 ﻿@using System.Net.Http;
 @using Newtonsoft.Json;
+@using Data;
 @page "/profileLogin"
 @inject NavigationManager NavManager;
 @inject Data.HttpRestService _httprestservice;
+@inject Account _account; 
 
 <h1>Profile Login</h1>
 
@@ -23,14 +25,6 @@
 </div>
 
 @code {
-    public class Account
-    {
-        public string id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string email { get; set; }
-        public bool is_admin { get; set; }
-    }
     string userName = "admin";
     string password = "admin";
     string error = "";
@@ -49,9 +43,17 @@
             {
                 Console.WriteLine(Account.username);
                 Console.WriteLine(args.Username);
+                // Store MD5 hashed password and compare the hash, so that the password is encryped, and return 200OK rather than items.
+                // Make a new API called login with just the SHA256 SUM and the username and it returns if its okay or not. Do not do it client side.
                 if((Account.username == args.Username) && (Account.password == args.Password))
                 {
                     error = "Successful Login";
+                    _account.id = Account.id;
+                    _account.username = Account.username;
+                    _account.password = Account.password;
+                    _account.email = Account.email;
+                    _account.is_admin = Account.is_admin;
+                    _account.following_list = Account.following_list;
                     break;
                 } else
                 {
@@ -80,6 +82,7 @@
         Uri uri = new Uri(string.Format("https://308projectlogin.azurewebsites.net/api/account", string.Empty));
         try
         {
+            error = "Checking Account Login";
             HttpResponseMessage response = await _httprestservice._client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
@@ -87,6 +90,7 @@
                 //Items = JsonSerializer.Deserialize(content,_httprestservice._serializerOptions);
                 Items = JsonConvert.DeserializeObject<List<Account>>(content);
             }
+            error = "";
         }
         catch (Exception ex)
         {

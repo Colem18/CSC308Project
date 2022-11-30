@@ -22,7 +22,8 @@ public static class MauiProgram
 		
 		builder.Services.AddSingleton<WeatherForecastService>();
         builder.Services.AddSingleton<HttpRestService>();
-        //builder.Services.AddSingleton<Account>();
+        builder.Services.AddSingleton<Account>();
+        builder.Services.AddSingleton<Event>();
         return builder.Build();
 	}
 }
