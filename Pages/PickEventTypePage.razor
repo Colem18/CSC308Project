@@ -6,29 +6,35 @@
     <h3>
         Select the type of event you want to create.
     </h3>
-    <div class="flex-container row">
+    <div class="flex-container row" @onclick="nextPage">
         <button class="btn roma">
-            TYPE 1
+            RELIGIOUS
         </button>
-        <button class="btn roma">
-            TYPE 2
+        <button class="btn roma" @onclick="nextPage">
+            SPORT
         </button>
 
     </div>
     <div class="flex-container row">
-        <button class="btn roma">
-            TYPE 3
+        @*<label class="roma-checkbox">
+            <input type="hidden" name="romaBtn" value="False" />
+            <input class="roma-checkbox-input" name="romaBtn" value="True" type="checkbox">
+            <span class="roma-checkbox-text">ART & HISTORY</span>
+        </label>*@
+        <button class="btn roma" @onclick="nextPage">
+            ART & HISTORY
         </button>
-        <button class="btn roma">
-            TYPE 4
+        <button class="btn roma" @onclick="nextPage">
+            MUSIC
         </button>
     </div>
-    <div class="flex-container row">
-        <button class="btn continue">
+    @*<div class="flex-container row">
+        <button class="btn continue" @onclick="nextPage">
             CONTINUE
         </button>
-       
-    </div>
+
+    </div>*@
+
     @*<div class="horizontalDiv">
             <RadzenButton Style="border: 2px solid #066274; background-color: white; color: #066274; width: 25%; padding: 5%; justify-content: center">
                 Type 3
@@ -40,5 +46,9 @@
 </div>
 
     @code {
+        private void nextPage()
+        {
+            NavManager.NavigateTo("/EventNameDescriptionPage");
+        }
 
     }

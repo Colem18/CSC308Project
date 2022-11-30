@@ -3,20 +3,25 @@
 @using Radzen
 @using Newtonsoft.Json;
 
-<h1 style="text-align:center;">Welcome to Roma Events!</h1>
+<div class="flex-container">
+    <h1 style="text-align:center;">Welcome to Roma Events!</h1>
 
-@if (EventList == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    @foreach (var Event in EventList)
+    @if (EventList == null)
     {
-        <EventCard eventName="@Event.eventName" eventDateTime="@Event.eventDateTime" eventAddress="@Event.eventAddress" eventDescription="@Event.eventDescription"
-                   eventImageURL="@Event.eventImageURL" eventType="@Event.eventType"></EventCard>
+        <p><em>Loading...</em></p>
     }
-}
+    else
+    {
+        @foreach (var Event in EventList)
+        {
+            <EventCard eventName="@Event.eventName" eventDateTime="@Event.eventDateTime" eventAddress="@Event.eventAddress" eventDescription="@Event.eventDescription"
+                       eventImageURL="@Event.eventImageURL" eventType="@Event.eventType"></EventCard>
+        }
+    }
+
+
+</div>
+
 
 
 @code {

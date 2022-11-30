@@ -11,13 +11,18 @@
 <div class="flex-container">
     <img src="img/logo_white.png" alt="Event Logo" width="500" height="500" />
     <div class="button">
-        <RadzenButton Style="display: flex; flex-direction: column; background-color: #066274; Size =ButtonSize.XL;"
+        <RadzenButton Style="display: flex; flex-direction: column; width: 250px; height: 50px; font-size: medium; background-color: #066274; text-align: center " Size="ButtonSize.Large"
                       Text="Continue As Guest"
                       Click="@OnClickGuest"> </RadzenButton>
-        <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274; Size =ButtonSize.Large;"
+    </div>
+    <div class="button">
+        <RadzenButton Style="display: flex; width: 250px; height: 50px; flex-direction: column; font-size: medium; background-color: #066274; text-align: center" Size="ButtonSize.Large"
                       Text="Login"
                       Click="@OnClickLogin"> </RadzenButton>
-        <RadzenButton Style="display: flex; flex-direction: column; background-color: #066274; Size =ButtonSize.Large; "
+
+    </div>
+    <div class="button">
+        <RadzenButton Style="display: flex; width: 250px; height: 50px; flex-direction: column; font-size: medium; background-color: #066274; text-align: center " Size="ButtonSize.Large"
                       Text="Create Account"
                       Click="@OnClickCreateAccount"> </RadzenButton>
     </div>
