@@ -5,7 +5,8 @@ html, body {
 
 .button {
     width: 250px;
-    height: 100px;
+    height: 75px;
+    text-align: center;
 }
 
 .flex-container {

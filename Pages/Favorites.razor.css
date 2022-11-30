@@ -1,0 +1,44 @@
+﻿.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+h1 {
+   font-size: 50px;
+   font-weight: bold;
+   letter-spacing: 2px;
+}
+.row {
+    flex-direction: row;
+}
+
+a:link {
+    text-size-adjust: 75%;
+    color: #066274;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #066274;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+    a:active {
+        color: yellow;
+        background-color: transparent;
+        text-decoration: underline;
+    }

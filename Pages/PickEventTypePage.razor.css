@@ -54,11 +54,90 @@
             background-color: #066274;
             color: white;
         }
+        .roma:active {
+            background-color: #066274;
+            color: white;
+        }
         .roma:focus {
             background-color: #066274;
             color: white;
+        }
+        roma:visited {
+            background-color: #066274;
+            color: white;
+        }
+        .roma-box-input{
+            display: none;
         }
         .continue {
             background-color: #066274;
             color: white;
         }
+html, body {
+    height: 100%;
+}
+
+.page {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.custom-checkbox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+/*    width: 500px;
+    height: 200px;*/
+}
+
+.custom-checkbox-input {
+    display: none;
+}
+
+.custom-checkbox-text {
+    padding: 1rem;
+    background-color: #aaa;
+    color: #555;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox-input:checked ~ .custom-checkbox-text {
+    background-color: red;
+    color: white;
+}
+
+
+
+.roma-checkbox {
+    left: 50%;
+    top: 50%;
+    border: 3px solid #066274;
+/*    height: 100px;*/
+    background-color: white;
+    font-size: 28px;
+    color: #066274;
+    /*    width: 30%;*/
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.roma-checkbox-input {
+    display: none;
+}
+
+.roma-checkbox-text {
+/*    padding: 1rem;*/
+    background-color: white;
+    color: #066274;
+    cursor: pointer;
+    user-select: none;
+}
+
+.roma-checkbox-input:checked ~ .roma-checkbox-text {
+    background-color: #066274;
+    color: white;
+}

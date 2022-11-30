@@ -1,7 +1,7 @@
 ﻿@page "/eventNameDescriptionPage"
 @inject NavigationManager NavManager
 
-<div class="col-xl-6 p-3">
+<div class="flex-containter">
     <RadzenText>
         Enter a name and description for the event.
     </RadzenText>
@@ -25,6 +25,17 @@
 </div>
 
 <style>
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+/*        padding-left: 5%;
+        padding-right: 5%;*/
+        padding-bottom: 5%;
+    }
+
     .verticalInputDiv {
         display: flex;
         flex-direction: column;
