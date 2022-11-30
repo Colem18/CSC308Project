@@ -15,10 +15,11 @@
     </RadzenText>
     <RadzenTemplateForm Data=@("LoginWithRegister")>
         <RadzenLogin AllowResetPassword="false"
-                     Login=@(args => OnLogin(args, "Login with register"))
-                     Register=@(args => OnRegister("Login with register")) />
-        <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
-    </RadzenTemplateForm>
+                     Login=@(args =>
+            OnLogin(args, "Login with register"))
+            Register=@(args => OnRegister("Login with register")) />
+            <RadzenText TextStyle="TextStyle.Caption">@error</RadzenText><br />
+</RadzenTemplateForm>
     <RadzenButton Style="display: flex; flex-direction: column; background-color:#066274;" Size="ButtonSize.Large"
                   Text="Forgot Password"
                   Icon="help"
@@ -55,6 +56,7 @@
                     _account.email = Account.email;
                     _account.is_admin = Account.is_admin;
                     _account.following_list = Account.following_list;
+                    NavManager.NavigateTo("/home");
                     break;
                 } else
                 {
