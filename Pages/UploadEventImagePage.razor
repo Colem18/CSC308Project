@@ -1,19 +1,32 @@
-﻿@page "/uploadEventImagePage"
+﻿@using eventsApp.Data;
+@page "/uploadEventImagePage"
 @inject NavigationManager NavManager
+@inject Event _event;
 
-<div>
-    <RadzenText>
+
+<div class="flex-container">
+    <h3>
         Upload an image to represent the new event.
-    </RadzenText>
-    <RadzenButton>
-        <p>upload</p>
-    </RadzenButton>
+    </h3>
+    @*<RadzenCard>
+            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Upload with icon</RadzenText>
+            <RadzenUpload Url="upload/single" Icon="upload" ChooseText="" Progress=@(args => OnProgress(args, "Upload with icon"))>
+            </RadzenUpload>
+        </RadzenCard>*@
+    <div class="verticalInputDiv">
+        <RadzenLabel Component="EventUrl" Text="Url" />
+        <RadzenTextBox Name="EventUrl" @bind-Value=url Style="border: 2px solid #066274" />
+    </div>
+    @*<RadzenButton>
+
+            <p>upload</p>
+        </RadzenButton>*@
     <div class="horizontalButtonDiv">
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@backPage" Style="background-color: #066274;">
             Back
         </RadzenButton>
-        <RadzenButton Style="background-color: #066274;">
-            Continue
+        <RadzenButton Click="@nextPage" Style="background-color: #066274;">
+            Confirm 
         </RadzenButton>
     </div>
 </div>
@@ -25,8 +38,44 @@
         justify-content: space-around;
         padding-top: 5%;
     }
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+    }
+
+    .verticalInputDiv {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: start;
+        margin-top: 5%;
+        color: #066274;
+    }
 </style>
 
 @code {
+    Event TempEvent;
+    string url = "";
+
+    private void nextPage()
+    {
+        TempEvent = _event;
+        TempEvent.url = url;
+        Console.WriteLine($"Event URL: {TempEvent.url}");
+        NavManager.NavigateTo("/newEventConfirmation");
+    }
+
+    private void backPage()
+    {
+        NavManager.NavigateTo("/pickEventLocationPage");
+    }
 
 }

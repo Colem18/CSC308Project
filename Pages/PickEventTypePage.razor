@@ -1,16 +1,19 @@
-﻿@page "/pickEventType"
+﻿@using eventsApp.Data;
+
+@page "/pickEventType"
 @inject NavigationManager NavManager
 
+@inject Event _event;
 
 <div class="flex-container">
     <h3>
         Select the type of event you want to create.
     </h3>
-    <div class="flex-container row" @onclick="nextPage">
-        <button class="btn roma">
+    <div class="flex-container row">
+        <button class="btn roma" @onclick="religion_nextPage">
             RELIGIOUS
         </button>
-        <button class="btn roma" @onclick="nextPage">
+        <button class="btn roma" @onclick="sport_nextPage">
             SPORT
         </button>
 
@@ -21,10 +24,10 @@
             <input class="roma-checkbox-input" name="romaBtn" value="True" type="checkbox">
             <span class="roma-checkbox-text">ART & HISTORY</span>
         </label>*@
-        <button class="btn roma" @onclick="nextPage">
+        <button class="btn roma" @onclick="art_nextPage">
             ART & HISTORY
         </button>
-        <button class="btn roma" @onclick="nextPage">
+        <button class="btn roma" @onclick="music_nextPage">
             MUSIC
         </button>
     </div>
@@ -46,9 +49,36 @@
 </div>
 
     @code {
-        private void nextPage()
+        Event TempEvent;
+
+        private void religion_nextPage()
         {
+            TempEvent = _event;
+            TempEvent.type = 1;
+            Console.WriteLine($"Event type: {TempEvent.type}");
             NavManager.NavigateTo("/eventStartDateAndTimePage");
+            
+        }
+        private void sport_nextPage()
+        {
+            TempEvent = _event;
+            TempEvent.type = 2;
+            NavManager.NavigateTo("/eventStartDateAndTimePage");
+            Console.WriteLine($"Event type: {TempEvent.type}");
+        }
+        private void art_nextPage()
+        {
+            TempEvent = _event;
+            TempEvent.type = 3;
+            NavManager.NavigateTo("/eventStartDateAndTimePage");
+            Console.WriteLine($"Event type: {TempEvent.type}");
+        }
+        private void music_nextPage()
+        {
+            TempEvent = _event;
+            TempEvent.type = 4;
+            NavManager.NavigateTo("/eventStartDateAndTimePage");
+            Console.WriteLine($"Event type: {TempEvent.type}");
         }
 
-    }
+        }

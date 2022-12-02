@@ -4,23 +4,36 @@
 
 .top-row {
     height: 3.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(6, 98, 116, .4);
 }
 
 /*.navbar-brand {
     font-size: 1.1rem;
 }*/
+.logo {
+ 
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
 
 .navbar-brand {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     padding-top: 0;
     line-height: inherit;
     white-space: nowrap;
     color: white;
-    .top-row
-
-{
+    margin-left: auto;
+    margin-right: auto
+}
+/*
+ .top-row{
     background-color: #066274;
     border-bottom: 1px solid #066274;
     align-items: center;
@@ -28,7 +41,7 @@
     height: 9.375rem;
     display: flex;
     color: white;
-}
+}*/
 
 
 .oi {

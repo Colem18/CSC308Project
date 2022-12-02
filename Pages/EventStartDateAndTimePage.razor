@@ -1,16 +1,18 @@
-﻿@page "/eventStartDateAndTimePage"
-@inject NavigationManager NavManager
+﻿@using eventsApp.Data;
 
-<div>
-    <RadzenText>
+@page "/eventStartDateAndTimePage"
+@inject NavigationManager NavManager
+@inject Event _event; 
+<div class="flex-container">
+    <h3>
         Select the start date and time of the event.
-    </RadzenText>
+    </h3>
     <RadzenDatePicker @bind-Value=newDateTime onchange=@onChange ShowTime=true HoursStep="1" MinutesStep="5" DateFormat="MM/dd/yyyy HH:mm" Style="color: #066274" />
     <div class="horizontalButtonDiv">
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@backPage" Style="background-color: #066274">
             Back
         </RadzenButton>
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@nextPage" Style="background-color: #066274">
             Continue
         </RadzenButton>
     </div>
@@ -29,6 +31,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding-top: 2%;
         padding-left: 5%;
         padding-right: 5%;
         padding-bottom: 5%;
@@ -36,15 +39,24 @@
 </style>
 
 @code {
+    Event TempEvent;
     DateTime newDateTime = DateTime.Now;
 
     void onChange(DateTime newValue)
-    {
+    {   
         Console.WriteLine($"Value changed to {newValue}");
     }
 
     private void nextPage()
     {
-        NavManager.NavigateTo("/eventStartDateAndTimePage");
+        TempEvent = _event;
+        TempEvent.datetime = newDateTime.ToString();
+        Console.WriteLine($"Value changed to {TempEvent.datetime}");
+        NavManager.NavigateTo("/eventNameDescriptionPage");
+    }
+
+    private void backPage()
+    {
+        NavManager.NavigateTo("/pickEventType");
     }
 }

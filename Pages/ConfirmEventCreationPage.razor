@@ -1,8 +1,48 @@
 ﻿@page "/confirmEventCreationPage"
 @inject NavigationManager NavManager
 
-<p>Confirm Event Creation Page</p>
+
+<div class="flex-container">
+    <h3>Confirm Event Creation Page</h3>
+    <div class="horizontalButtonDiv">
+        <RadzenButton Click="@modifyPage" Style="background-color: #066274;">
+            Modify
+        </RadzenButton>
+        <RadzenButton Click="@nextPage" Style="background-color: #066274;">
+            Home
+        </RadzenButton>
+    </div>
+</div>
+
+
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+    }
+
+    .horizontalButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 5%;
+    }
+</style>
 
 @code {
-
+    private void nextPage()
+    {
+        NavManager.NavigateTo("/home");
+    }
+    private void modifyPage()
+    {
+        NavManager.NavigateTo("/modifyEventPage");
+    }
 }

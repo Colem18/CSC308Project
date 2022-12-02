@@ -1,10 +1,13 @@
-﻿@page "/eventNameDescriptionPage"
+﻿@using eventsApp.Data;
+
+@page "/eventNameDescriptionPage"
 @inject NavigationManager NavManager
+@inject Event _event;
 
 <div class="flex-containter">
-    <RadzenText>
+    <h3>
         Enter a name and description for the event.
-    </RadzenText>
+    </h3>
     <div class="verticalInputDiv">
         <RadzenLabel Component="EventName" Text="Name" />
         <RadzenTextBox Name="EventName" @bind-Value=name Style="border: 2px solid #066274" />
@@ -13,9 +16,9 @@
         <RadzenLabel Component="EventDescription" Text="Description" />
         <RadzenTextArea Name="EventDescription" @bind-Value=description Rows="4" Style="border: 2px solid #066274" />
     </div>
-    
+
     <div class="horizontalButtonDiv">
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@backPage" Style="background-color: #066274;">
             Back
         </RadzenButton>
         <RadzenButton Click="@nextPage" Style="background-color: #066274;">
@@ -31,8 +34,9 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-/*        padding-left: 5%;
-        padding-right: 5%;*/
+        padding-top: 2%;
+        padding-left: 5%;
+        padding-right: 5%;
         padding-bottom: 5%;
     }
 
@@ -44,6 +48,7 @@
         margin-top: 5%;
         color: #066274;
     }
+
     .horizontalButtonDiv {
         display: flex;
         width: 100%;
@@ -53,11 +58,21 @@
 </style>
 
 @code {
+    Event TempEvent;
     string name = "";
     string description = "";
 
     private void nextPage()
     {
+        TempEvent = _event;
+        TempEvent.name = name;
+        TempEvent.description = description;
+        Console.WriteLine($"Event Name: {TempEvent.name}");
+        Console.WriteLine($"Event description: {TempEvent.description}");
         NavManager.NavigateTo("/pickEventLocationPage");
+    }
+    private void backPage()
+    {
+        NavManager.NavigateTo("/eventStartDateAndTimePage");
     }
 }
