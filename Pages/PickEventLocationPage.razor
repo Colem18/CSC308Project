@@ -1,10 +1,13 @@
-﻿@page "/pickEventLocationPage"
+﻿@using eventsApp.Data;
+@page "/pickEventLocationPage"
 @inject NavigationManager NavManager
+@inject Event _event;
 
 <div class="flex-container">
-    <RadzenText>
+    <h3>
         Enter the address of the event.
-    </RadzenText>
+    </h3>
+
     <div class="verticalInputDiv">
         <RadzenLabel Component="EventAddress" Text="Address" />
         <RadzenTextBox Name="EventAddress" @bind-Value=address Style="border: 2px solid #066274" />
@@ -26,12 +29,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        padding-top: 5%;
+        width: 90%%;
+        padding-top: 2%;
         padding-left: 5%;
         padding-right: 5%;
         padding-bottom: 5%;
     }
+
     .verticalInputDiv {
         display: flex;
         flex-direction: column;
@@ -40,6 +44,7 @@
         margin-top: 5%;
         color: #066274;
     }
+
     .horizontalButtonDiv {
         display: flex;
         width: 100%;
@@ -49,10 +54,14 @@
 </style>
 
 @code {
+    Event TempEvent;
     string address = "";
 
     private void nextPage()
     {
+        TempEvent = _event;
+        TempEvent.address = address;
+        Console.WriteLine($"Event address: {TempEvent.address}");
         NavManager.NavigateTo("/uploadEventImagePage");
     }
 
