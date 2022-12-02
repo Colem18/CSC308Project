@@ -11,10 +11,10 @@
     </div>
 
     <div class="horizontalButtonDiv">
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@backPage" Style="background-color: #066274;">
             Back
         </RadzenButton>
-        <RadzenButton Style="background-color: #066274;">
+        <RadzenButton Click="@nextPage" Style="background-color: #066274;">
             Continue
         </RadzenButton>
     </div>
@@ -27,8 +27,9 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        /*        padding-left: 5%;
-        padding-right: 5%;*/
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
         padding-bottom: 5%;
     }
     .verticalInputDiv {
@@ -49,4 +50,14 @@
 
 @code {
     string address = "";
+
+    private void nextPage()
+    {
+        NavManager.NavigateTo("/uploadEventImagePage");
+    }
+
+    private void backPage()
+    {
+        NavManager.NavigateTo("/eventNameDescriptionPage");
+    }
 }
