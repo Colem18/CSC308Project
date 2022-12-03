@@ -4,7 +4,8 @@
 @using Radzen;
 @using eventsApp.Data;
 @using Microsoft.Maui.Graphics;
-
+@using eventsApp.Data;
+@inject Account _account;
 @inject Session _session;
 
 <style>
@@ -49,6 +50,7 @@
 
 @code {
     public string star = "star_border";
+    Account loggedIn;
     [Parameter]
     public string eventId { get; set; }
     [Parameter]
@@ -70,9 +72,15 @@
         _session.id = eventId;
         NavManager.NavigateTo("/eventpage");
     }
-    private void FavoriteEvent()
+    protected override async Task OnInitializedAsync()
     {
-        if (star == "star_border")
+        loggedIn = _account;
+        String[] following_list = loggedIn.following_list;
+        if (loggedIn.id == null)
+        {
+            star = "star_border";
+        }
+        else if (following_list.Contains(@eventId))
         {
             star = "star";
         }
@@ -80,5 +88,16 @@
         {
             star = "star_border";
         }
+    }
+    private void FavoriteEvent()
+    {
+        /**if (star == "star_border")
+        {
+            star = "star";
+        }
+        else
+        {
+            star = "star_border";
+        } **/
     }
 }

@@ -138,6 +138,7 @@
         }
         else if (Fav == "Unfavorite Event")
         {
+            Fav = "Favoriting...";
             loggedIn.following_list = loggedIn.following_list.Except(new string[] { EventItem.id }).ToArray();
             Task updateAccount = CreateAccountAsync(loggedIn, AccID);
             await updateAccount;
