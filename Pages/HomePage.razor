@@ -2,10 +2,10 @@
 
 @using Radzen
 @using Newtonsoft.Json;
-@using Data;
+@using eventsApp.Data;
 
 @inject NavigationManager NavManager;
-@inject Data.HttpRestService _httprestservice;
+@inject HttpRestService _httprestservice;
 
 <div class="flex-container">
     <h1 style="text-align:center;">Welcome to Roma Events!</h1>
@@ -20,8 +20,9 @@ else
 {
     @foreach (var Event in EventList)
     {
+        Console.WriteLine(Event.id);
         <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
-                   eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
+                      eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
     }
 }
 
