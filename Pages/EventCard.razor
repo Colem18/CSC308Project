@@ -2,7 +2,7 @@
 @inject NavigationManager NavManager
 
 @using Radzen;
-@using Data;
+@using eventsApp.Data;
 @using Microsoft.Maui.Graphics;
 
 @inject Session _session;
@@ -66,6 +66,7 @@
 
     private void newPage()
     {
+        Console.WriteLine(_session.id);
         _session.id = eventId;
         NavManager.NavigateTo("/eventpage");
     }

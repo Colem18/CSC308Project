@@ -1,36 +1,36 @@
 ﻿@using Radzen
 @using Newtonsoft.Json;
-@using Data;
+@using System.Net.Http;
+@using System.Text;
+@using System;
+@using eventsApp.Data;
+@using System.Linq;
 
 @inject NavigationManager NavManager;
-@inject Data.HttpRestService _httprestservice;
+@inject HttpRestService _httprestservice;
 @inject Session _session;
-
+@inject Account _account;
 
 @page "/eventpage"
 
 <p><em>@loading</em></p>
 
 <div class="flex-container">
-    <h2 style="text-align: center;">Shari Vari</h2>
-    <RadzenImage Path="https://i.imgur.com/ditrT1U.png" Class="float-left mr-3" Style="width: 50%; border-radius: 2%;" />
+    <h2 style="text-align: center;">@EventCard.name</h2>
+    <RadzenImage Path="@EventCard.url" Class="float-left mr-3" Style="width: 50%; border-radius: 2%;" />
     <br />
     <hr />
     <br />
     <RadzenIcon Icon="schedule" />
-    <p style="text-align:left;">00:00-6:00</p>
+    <p style="text-align:left;">@EventCard.datetime</p>
     <RadzenIcon Icon="place" />
-    <p>Via de' Nari, 14, 00186 Roma RM</p>
+    <p>@EventCard.address</p>
     <p></p>
     <br />
 
     <h5>Description</h5>
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec libero in ex auctor consequat et a turpis. Sed condimentum
-        laoreet pulvinar. Morbi metus lorem, dignissim sit amet sodales cursus, ultricies ut libero. Maecenas porta egestas massa,
-        accumsan interdum justo mollis et. Morbi tristique diam accumsan tincidunt porta. Proin ac lorem nisl. Donec fermentum sapien s
-        ed mollis vehicula. Sed pretium vulputate est, at egestas libero efficitur a. Ut ornare, lacus sed congue egestas, enim ex dapibus
-        nulla
+        @EventCard.description
     </p>
     <div class="button">
         <RadzenButton Click="newPage" Text="Buy Tickets" Size="ButtonSize.Large"
@@ -45,25 +45,40 @@
 
 @code {
     string loading = "Loading...";
-    private List<Event> EventList = new List<Event>();
+    Account loggedIn;
+    private Event EventCard = new Event();
     public List<Event> Items = new List<Event>();
     public Event EventItem = new Event();
-    public string Fav = "Favorite Event";
+    public string Fav = "Loading...";
     protected override async Task OnInitializedAsync()
     {
-        Task<List<Event>> LIST = GetEventsAsync();
-        EventList = await LIST;
+        Task<Event> LIST = GetEventsAsync();
+        EventCard = await LIST;
+        loggedIn = _account;
         loading = "Sucessfully Loaded";
-        Console.WriteLine(EventItem.id);
-        Console.WriteLine(EventItem.name);
-        Console.WriteLine(EventItem.datetime);
-        Console.WriteLine(EventItem.address);
-        Console.WriteLine(EventItem.description);
+        Console.WriteLine(EventCard.id);
+        Console.WriteLine(EventCard.name);
+        Console.WriteLine(EventCard.datetime);
+        Console.WriteLine(EventCard.address);
+        Console.WriteLine(EventCard.description);
+        String[] following_list = loggedIn.following_list;
+        if (loggedIn.id == null)
+        {
+            Fav = "Login to Favorite";
+        }
+        else if (following_list.Contains(EventCard.id))
+        {
+            Fav = "Unfavorite Event";
+        }
+        else
+        {
+            Fav = "Favorite Event";
+        }
         //await InvokeAsync(() => StateHasChanged());
     }
-    public async Task<List<Event>> GetEventsAsync()
+    public async Task<Event> GetEventsAsync()
     {
-        Uri uri = new Uri(string.Format("https://romaeventfunction.azurewebsites.net/api/event", string.Empty));
+        Uri uri = new Uri(string.Format($"https://romaeventfunction.azurewebsites.net/api/event/{_session.id}", string.Empty));
         //Console.WriteLine(uri);
         try
         {
@@ -81,22 +96,71 @@
         {
             Console.WriteLine(@"\tERROR {0}", ex.Message);
         }
+        EventItem = Items[0];
+        return EventItem;
+    }
+    public async Task CreateAccountAsync(Account acc,string AccID, bool isNewItem = false)
+    {
+        Uri uri = new Uri(string.Format($"https://308projectlogin.azurewebsites.net/api/account/{AccID}", string.Empty));
 
-        return Items;
+        try
+        {
+            //string json = JsonSerialize.Serialize<TodoItem>(item, _serializerOptions);
+            string json = JsonConvert.SerializeObject(acc, Formatting.Indented);
+            Console.WriteLine(json);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            if (isNewItem)
+                response = await _httprestservice._client.PostAsync(uri, content);
+            else
+                response = await _httprestservice._client.PutAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+                Console.WriteLine(@"\tAccount successfully saved.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
     }
     private void newPage()
     {
 
     }
-    private void FavoriteEvent()
+
+    private async void FavoriteEvent()
     {
-        if (Fav == "Favorite Event")
+        String AccID = loggedIn.id;
+        if (Fav == "Login to Favorite")
         {
+
+        }
+        else if (Fav == "Unfavorite Event")
+        {
+            loggedIn.following_list = loggedIn.following_list.Except(new string[] { EventItem.id }).ToArray();
+            Task updateAccount = CreateAccountAsync(loggedIn, AccID);
+            await updateAccount;
+            Fav = "Favorite Event";
+            await InvokeAsync(() => StateHasChanged());
+        }
+        else if (Fav == "Favorite Event")
+        {
+            loggedIn.following_list = loggedIn.following_list.Append(EventItem.id).ToArray();
+            foreach (var item in loggedIn.following_list)
+            {
+                Console.Write("Value: ");
+                Console.WriteLine(item);
+            }
+            Fav = "Favoriting...";
+            Task updateAccount = CreateAccountAsync(loggedIn, AccID);
+            await updateAccount;
             Fav = "Unfavorite Event";
+            await InvokeAsync(() => StateHasChanged());
         }
         else
         {
-            Fav = "Favorite Event";
+            Fav = "Loading";
         }
     }
 }
