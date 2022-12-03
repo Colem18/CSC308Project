@@ -8,13 +8,14 @@
 @inject HttpRestService _httprestservice;
 
 <div class="flex-container">
-    <h1 style="text-align:center;">Welcome to Roma Events!</h1>
+<h1 style="text-align:center;">Welcome to Roma Events!</h1>
 
+<RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
 <p><em>@loading</em></p>
 
 @if (EventList == null)
 {
-        Console.WriteLine(EventList.ToString);
+    Console.WriteLine(EventList.ToString);
 }
 else
 {
@@ -22,7 +23,7 @@ else
     {
         Console.WriteLine(Event.id);
         <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
-                      eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
+                    eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
     }
 }
 

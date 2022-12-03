@@ -1,13 +1,66 @@
 @page "/favoriteswithcard"
 
+@using Radzen
+@using Newtonsoft.Json;
+@using eventsApp.Data;
+
+@inject NavigationManager NavManager;
+@inject HttpRestService _httprestservice;
+@inject Account _account;
+
 <div class="flex-container">
-    <h1>Favorites</h1>
+    <p><em>@loading</em></p>
 
-    <EventCard eventName="Shari Vari" eventDateTime="00:00-00:30" eventAddress="Via de' Nari, 14, 00186 Roma RM" eventDescription="Lorum Ipsum"
-               eventImageURL="https://i.imgur.com/ditrT1U.png" eventType="2"></EventCard>
-
+@if (EventList == null)
+{
+    Console.WriteLine(EventList.ToString);
+}
+else
+{
+    @foreach (var Event in EventList)
+    {
+        Console.WriteLine(Event.id);
+        if (_account.following_list.Contains(Event.id)) {
+            <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
+                        eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
+        }
+    }
+}
 </div>
 @code {
+    string loading = "Loading...";
+    private List<Event> EventList = new List<Event>();
+    public List<Event> Items = new List<Event>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        Task<List<Event>> LIST = GetEventsAsync();
+        EventList = await LIST;
+        loading = "Sucessfully Loaded";
+        //await InvokeAsync(() => StateHasChanged());
+    }
+    public async Task<List<Event>> GetEventsAsync()
+    {
+        Uri uri = new Uri(string.Format("https://romaeventfunction.azurewebsites.net/api/event", string.Empty));
+        //Console.WriteLine(uri);
+        try
+        {
+            HttpResponseMessage response = await _httprestservice._client.GetAsync(uri);
+            //Console.WriteLine(response.IsSuccessStatusCode);
+            if (response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(content);
+                //Items = JsonSerializer.Deserialize(content,_httprestservice._serializerOptions);
+                Items = JsonConvert.DeserializeObject<List<Event>>(content);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
+
+        return Items;
+    }
 }
 
