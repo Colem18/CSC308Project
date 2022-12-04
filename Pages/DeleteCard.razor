@@ -1,21 +1,64 @@
-﻿@page "/deletecard"
+﻿@using eventsApp.Data;
+@using Radzen;
+@using System.Text;
+@using System;
+
+@page "/deletecard"
+
+@inject NavigationManager NavManager;
+@inject Session _session;
+@inject Account _account;
+@inject Event _event;
+@inject HttpRestService _httprestservice;
 
 <div class="text-center">
     <h1>Delete Card</h1>
 </div>
 <div>
+    <p><em>@loading</em></p>
     <div style="display: flex; justify-content: center; width: 100%;">
         <p>Are you sure you want to delete this card?</p>
     </div>
     <div style="display: flex; justify-content: center; width: 100%;">
-        <RadzenButton Click="Delete" Text="Cancel" ButtonStyle="ButtonStyle.Primary" Style="display: inline-flex; width: 30%; border-radius: 2%; margin: auto;" />
+        <RadzenButton Click="Cancel" Text="Cancel" ButtonStyle="ButtonStyle.Primary" Style="display: inline-flex; width: 30%; border-radius: 2%; margin: auto;" />
         <RadzenButton Click="Delete" Text="Delete" ButtonStyle="ButtonStyle.Secondary" Style="display: inline-flex; width: 30%; border-radius: 2%; margin: auto;" />
     </div>
 </div>
 @code {
-    public void Delete()
+    string loading = "";
+    public async void Delete()
     {
+        loading = "Deleting...";
+        Task newEvent = DeleteEventAsync(_session.id);
+        await newEvent;
+    }
+    private void Cancel()
+    {
+        NavManager.NavigateTo("/eventpage");
+    }
 
+    public async Task DeleteEventAsync(string id)
+    {
+        Console.WriteLine(id);
+        Uri uri = new Uri(string.Format($"https://romaeventfunction.azurewebsites.net/api/event/{id}", string.Empty));
+        Console.WriteLine(uri);
+        try
+        {
+            HttpResponseMessage response = await _httprestservice._client.DeleteAsync(uri);
+            Console.WriteLine(response.IsSuccessStatusCode);
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine(@"\tEventItem successfully deleted.");
+                loading = "Succesfully Deleted...";
+                System.Threading.Thread.Sleep(1000);
+                NavManager.NavigateTo("/home");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+            loading = "Error attempting to delete event. Please try again soon";
+        }
     }
 }
 

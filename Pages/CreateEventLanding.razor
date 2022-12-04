@@ -1,5 +1,15 @@
 ﻿@page "/CreateEventLanding"
+
+@using Radzen;
+@using Newtonsoft.Json;
+@using System.Net.Http;
+@using eventsApp.Data;
+@using System.Text;
+@using Microsoft.Maui.Graphics;
+
 @inject NavigationManager NavManager
+@inject Account _account;
+
 
 <div class="flex-container">
     <h1>
@@ -12,74 +22,81 @@
     </div>
 </div>
 
-    <style>
-        .flex-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            padding-top: 5%;
-            padding-left: 5%;
-            padding-right: 5%;
-            padding-bottom: 5%;
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+
+    .btn {
+        border: 3px solid white;
+        height: 100px;
+        background-color: #066274;
+        font-size: 28px;
+        color: white;
+        width: 30%;
+        cursor: pointer;
+        justify-content: space-around;
+        border-radius: 8px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    .roma {
+        border-color: #066274;
+        color: white;
+    }
+
+        .roma:hover {
+            background-color: white;
+            color: #066274;
         }
 
-        .row {
-            flex-direction: row;
-        }
-
-
-        .btn {
-            border: 3px solid white;
-            height: 100px;
-            background-color: #066274;
-            font-size: 28px;
-            color: white;
-            width: 30%;
-            cursor: pointer;
-            justify-content: space-around;
-            border-radius: 8px;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: bold;
-        }
-
-        .roma {
-            border-color: #066274;
-            color: white;
-        }
-
-            .roma:hover {
-                background-color: white;
-                color: #066274;
-            }
-
-            .roma:active {
-                background-color: #066274;
-                color: white;
-            }
-
-            .roma:focus {
-                background-color: #066274;
-                color: white;
-            }
-
-        roma:visited {
+        .roma:active {
             background-color: #066274;
             color: white;
         }
 
-        .roma-box-input {
-            display: none;
-        }
-
-        .continue {
+        .roma:focus {
             background-color: #066274;
             color: white;
         }
-    </style>
+
+    roma:visited {
+        background-color: #066274;
+        color: white;
+    }
+
+    .roma-box-input {
+        display: none;
+    }
+
+    .continue {
+        background-color: #066274;
+        color: white;
+    }
+</style>
 @code
 {
+    protected override async Task OnInitializedAsync()
+    {
+        if((_account.is_admin != null) && (_account.is_admin == false))
+        {
+            NavManager.NavigateTo("/home");
+        }
+    }
     private void selectType_nextPage()
     {
         NavManager.NavigateTo("/pickEventType");
