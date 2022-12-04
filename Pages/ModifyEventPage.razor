@@ -1,41 +1,41 @@
 ﻿@page "/modifyEventPage"
 @inject NavigationManager NavManager
 
-<div class="col-xl-6 p-3">
-    <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+<div class=main>
+    <h1 style="margin-bottom: 3%;">
         Modify Event Page
-    </RadzenText>
-    <p>
-        <RadzenLabel Component="EventName" Text="Name" />
-        <RadzenTextBox Name="EventName" @bind-Value=name />
-    </p>
-    <p>
-        <RadzenLabel Component="EventDate" Text="Date" />
-        <RadzenTextBox Name="EventDate" @bind-Value=date />
-    </p>
-    <p>
-        <RadzenLabel Component="EventAddress" Text="Address" />
-        <RadzenTextBox Name="EventAddress" @bind-Value=address />
-    </p>
-    <p>
-        <RadzenLabel Component="EventDescription" Text="Description" />
-        <RadzenTextBox Name="EventDescription" @bind-Value=description />
-    </p>
-    <p>
-        <RadzenLabel Component="EventImage" Text="ImageURL" />
-        <RadzenTextBox Name="EventImage" @bind-Value=imageURL />
-    </p>
-    <p>
-        <RadzenLabel Component="EventType" Text="Type" />
-        <RadzenTextBox Name="EventType" @bind-Value=type />
-    </p>
-    <p>
-        <RadzenLabel Component="EventTotalTickets" Text="Ticket Number" />
-        <RadzenTextBox Name="EventTotalTickets" @bind-Value=ticketCount />
-    </p>
-    <div style="flex-direction: row;" >
-        <RadzenButton Click=@(args => OnCancel()) Text="Cancel" ButtonStyle="ButtonStyle.Primary"/>
-        <RadzenButton Click=@(args => OnSave()) Text="Save" ButtonStyle="ButtonStyle.Primary" />
+    </h1>    
+    <div class=inputRow>
+        <RadzenLabel Component="EventName" Text="Name:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventName" @bind-Value=name Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventDate" Text="Date:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventDate" @bind-Value=date Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventAddress" Text="Address:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventAddress" @bind-Value=address Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventDescription" Text="Description:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventDescription" @bind-Value=description Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventImage" Text="ImageURL:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventImage" @bind-Value=imageURL Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventType" Text="Type:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventType" @bind-Value=type Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=inputRow>
+        <RadzenLabel Component="EventTotalTickets" Text="Ticket Number:" Style="width: 20%;" />
+        <RadzenTextBox Name="EventTotalTickets" @bind-Value=ticketCount Style="border: 2px solid #066274; width: 40%;" />
+    </div>
+    <div class=buttonRow >
+        <RadzenButton Click=@(args => OnCancel()) Text="Cancel" Style="background-color: #066274" />
+        <RadzenButton Click=@(args => OnSave()) Text="Save" Style="background-color: #066274" />
     </div>
     
 </div>

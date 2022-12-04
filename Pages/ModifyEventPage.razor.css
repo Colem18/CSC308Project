@@ -1,0 +1,23 @@
+﻿.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.inputRow {
+    display: flex;
+    width: 100%;
+    padding-left: 30%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    margin: 15%;
+    width: 70%;
+    justify-content: space-around;
+    margin-top: 5%;
+}
