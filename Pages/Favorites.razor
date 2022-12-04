@@ -11,11 +11,12 @@
     <h3>You currently do not have any saved events</h3>
     <img src="img/EmptyFavorites.png" alt="Empty Favorites" width="747.075" height="834.225" />
     <h3 class="mt-3" style="text-align:center;">@message</h3>
-    <a href="" target="_blank" @onclick="OnLogin">Login or Create an Account</a>
+    <a href="" target="_blank" @onclick="OnLogin">@login</a>
 </div>
 
 @code {
     string message = "Loading...";
+    string login = "Login or Create an Account";
     Account loggedIn;
     private void OnLogin()
     {
@@ -37,11 +38,18 @@
 
         if(loggedIn.id == null)
         {
+            login = "Login or Create an Account";
             message = "Log in to keep track of all your favorites so you don't miss out!";
         }
         else if(loggedIn.following_list == null)
         {
             message = "";
+            login = "";
+        }
+        else if (loggedIn.following_list.Length == 0)
+        {
+            message = "";
+            login = "";
         }
         else if (loggedIn.following_list.Length > 0)
         {
