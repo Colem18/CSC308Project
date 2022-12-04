@@ -1,9 +1,24 @@
 ﻿@page "/adminpage"
 @inject NavigationManager NavManager
-<h1>Welcome!</h1>
-<h3>Select what actions you would like to perform</h3>
 
-<RadzenButton Style="display:flex; flex-direction:column"
+<div class="flex-container">
+    <h1>Welcome!</h1>
+    <h3>Select what actions you would like to perform?</h3>
+    <div class="flex-container row">
+        <button class="btn roma" @onclick="OnCreateEvent">
+            Create a New Event
+        </button>
+        <button class="btn roma" @onclick="OnModifyEvent">
+            Modify an Existing Event
+        </button>
+        <button class="btn roma" @onclick="OnDeleteEvent">
+            Delete an Existing Event
+        </button>
+
+    </div>
+</div>
+
+@*<RadzenButton Style="display:flex; flex-direction:column"
               Text="Create a New Event"
               Click="@OnCreateEvent"> </RadzenButton>
 <RadzenButton Style="display:flex; flex-direction:column"
@@ -11,13 +26,81 @@
               Click="@OnModifyEvent"> </RadzenButton>
 <RadzenButton Style="display:flex; flex-direction:column"
               Text="Delete an existing event"
-              Click="@OnDeleteEvent"> </RadzenButton>
+              Click="@OnDeleteEvent"> </RadzenButton>*@
+
+
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+
+    .btn {
+        border: 3px solid white;
+        height: 100px;
+        background-color: #066274;
+        font-size: 28px;
+        color: white;
+        width: 30%;
+        cursor: pointer;
+        justify-content: space-around;
+        border-radius: 8px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    .roma {
+        border-color: #066274;
+        color: white;
+    }
+
+        .roma:hover {
+            background-color: white;
+            color: #066274;
+        }
+
+        .roma:active {
+            background-color: #066274;
+            color: white;
+        }
+
+        .roma:focus {
+            background-color: #066274;
+            color: white;
+        }
+
+    roma:visited {
+        background-color: #066274;
+        color: white;
+    }
+
+    .roma-box-input {
+        display: none;
+    }
+
+    .continue {
+        background-color: #066274;
+        color: white;
+    }
+</style>
 
 @code {
 
     void OnCreateEvent()
     {
-        NavManager.NavigateTo("/createEventPage");
+        NavManager.NavigateTo("/CreateEventLanding");
     }
 
     void OnModifyEvent()

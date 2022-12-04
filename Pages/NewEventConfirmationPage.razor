@@ -1,18 +1,6 @@
-﻿
-@page "/newEventConfirmation"
-@using Radzen;
-@using Newtonsoft.Json;
-@using System.Net.Http;
-@using eventsApp.Data;
-@using System.Text;
-@using Microsoft.Maui.Graphics;
-@using eventsApp.Data;
-
+﻿@page "/newEventConfirmation"
 @inject NavigationManager NavManager
-@inject HttpRestService _httprestservice;
-@inject Session _session;
-@inject Account _account;
-@inject Event _event; 
+
 <div class="flex-container">
     <h3>
         Event Successfully Proccessed
@@ -35,10 +23,10 @@
     </div>
 
 </div>
-
+   
 
 <style>
-    flex-container {
+    .flex-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -56,63 +44,12 @@
         justify-content: space-around;
         padding-top: 5%;
     }
+
 </style>
 
 
 
 @code {
-    public class newEvent
-    {
-        public string name { get; set; }
-        public string datetime { get; set; }
-        public string address { get; set; }
-        public string description { get; set; }
-        public string url { get; set; }
-        public int type { get; set; }
-    }
-    Event currentEvent;
-    protected override async Task OnInitializedAsync()
-    {
-        newEvent currentEvent = new newEvent();
-        currentEvent.name = _event.name;
-        currentEvent.datetime = _event.datetime;
-        currentEvent.address = _event.address;
-        currentEvent.description = _event.description;
-        currentEvent.url = _event.url;
-        currentEvent.type = _event.type;
-        Task newEvent = CreateEventAsync(currentEvent, true);
-        await newEvent;
-        Console.WriteLine(currentEvent.name);
-        Console.WriteLine(currentEvent.type);
-        Console.WriteLine(currentEvent.datetime);
-        Console.WriteLine(currentEvent.description);
-        Console.WriteLine(currentEvent.url);
-    }
-    public async Task CreateEventAsync(newEvent eve, bool isNewItem = false)
-    {
-        Uri uri = new Uri(string.Format("https://romaeventfunction.azurewebsites.net/api/event", string.Empty));
-
-        try
-        {
-            //string json = JsonSerialize.Serialize<TodoItem>(item, _serializerOptions);
-            string json = JsonConvert.SerializeObject(eve, Formatting.Indented);
-            Console.WriteLine(json);
-            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = null;
-            if (isNewItem)
-                response = await _httprestservice._client.PostAsync(uri, content);
-            else
-                response = await _httprestservice._client.PutAsync(uri, content);
-
-            if (response.IsSuccessStatusCode)
-                Console.WriteLine(@"\tEvent successfully saved.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@"\tERROR {0}", ex.Message);
-        }
-    }
     private void nextPage()
     {
         NavManager.NavigateTo("/home");
