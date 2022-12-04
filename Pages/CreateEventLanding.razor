@@ -1,0 +1,87 @@
+﻿@page "/CreateEventLanding"
+@inject NavigationManager NavManager
+
+<div class="flex-container">
+    <h1>
+        Do you want to create a new event?
+    </h1>
+    <div class="flex-container row">
+        <button class="btn roma" @onclick="selectType_nextPage">
+            Yes, Proceed
+        </button>
+    </div>
+</div>
+
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            padding-top: 5%;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-bottom: 5%;
+        }
+
+        .row {
+            flex-direction: row;
+        }
+
+
+        .btn {
+            border: 3px solid white;
+            height: 100px;
+            background-color: #066274;
+            font-size: 28px;
+            color: white;
+            width: 30%;
+            cursor: pointer;
+            justify-content: space-around;
+            border-radius: 8px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .roma {
+            border-color: #066274;
+            color: white;
+        }
+
+            .roma:hover {
+                background-color: white;
+                color: #066274;
+            }
+
+            .roma:active {
+                background-color: #066274;
+                color: white;
+            }
+
+            .roma:focus {
+                background-color: #066274;
+                color: white;
+            }
+
+        roma:visited {
+            background-color: #066274;
+            color: white;
+        }
+
+        .roma-box-input {
+            display: none;
+        }
+
+        .continue {
+            background-color: #066274;
+            color: white;
+        }
+    </style>
+@code
+{
+    private void selectType_nextPage()
+    {
+        NavManager.NavigateTo("/pickEventType");
+    }
+}
