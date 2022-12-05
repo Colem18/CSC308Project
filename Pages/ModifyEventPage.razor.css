@@ -11,6 +11,11 @@
     padding-left: 30%;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
+}
+
+.labelStyle {
+    width: 20%;
 }
 
 .buttonRow {
