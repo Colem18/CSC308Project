@@ -4,57 +4,22 @@
 @inject Account _account;
 
  
-<div class="flex-container">
-    <h1>Welcome Back! </h1>
-    <hr>
-    <p>
-        Username: @profile.username
-    </p>
-    <p>
-        Email: @profile.email
-    </p>
-    <p>
-        Account Type: @account_type
-    </p>
-   
-    
-
-
-
-
-
+<div class=main>
+    <h1>Profile</h1>
+    <RadzenIcon Icon="account_circle"/>
+    <div class=profileDetails>
+        <p>
+            Username: @profile.username
+        </p>
+        <p>
+            Email: @profile.email
+        </p>
+        <p>
+            Account Type: @account_type
+        </p>
+    </div>
+    <RadzenButton Text="Logout" onclick=logout Style="background-color: #066274; margin-top: 5%;" />
 </div>
-
-<style>
-    .flex-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        /*        padding-left: 5%;
-        padding-right: 5%;*/
-        padding-bottom: 5%;
-    }
-    h1 {
-        font-size: 50px;
-        font-weight: 700;
-    }
-
-    hr {
-        height: 5px;
-        width: 75%;
-        background-color: black;
-    }
-
-    p{
-        font-size: 24px;
-        color: black;
-        font-weight: 400;
-
-    }
-
-</style>
 
 @code {
     Account profile = new Account();
@@ -72,8 +37,10 @@
         {
             account_type = "Citzen";
         }
-
     }
 
-
+    private void logout()
+    {
+        
+    }
 }
