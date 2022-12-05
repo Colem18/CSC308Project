@@ -44,7 +44,7 @@
     @if ((_account.id != null) && (_account.is_admin == true))
     {
         <div class="button">
-            <RadzenButton Click="FavoriteEvent" Text="Edit Event" Size="ButtonSize.Large"
+            <RadzenButton Click="editEvent" Text="Edit Event" Size="ButtonSize.Large"
                             Style="display: flex; background-color: #066274; width: 250px; height: 50px; border-radius: 2%; font-size: large; text-align: center; justify-content: center;" />
         </div>
         <div class="button">
@@ -143,7 +143,11 @@
     {
         NavManager.NavigateTo("/deletecard");
     }
-    private async void FavoriteEvent()
+    private void editEvent()
+    {
+        NavManager.NavigateTo("/modifyEventPage");
+    }
+    public async void FavoriteEvent()
     {
         String AccID = loggedIn.id;
         if (Fav == "Login to Favorite")

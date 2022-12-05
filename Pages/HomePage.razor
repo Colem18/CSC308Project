@@ -2,30 +2,34 @@
 
 @using Radzen
 @using Newtonsoft.Json;
+@using Microsoft.Maui.Graphics;
 @using eventsApp.Data;
 
 @inject NavigationManager NavManager;
 @inject HttpRestService _httprestservice;
 
 <div class="flex-container">
-<h1 style="text-align:center;">Welcome to Roma Events!</h1>
+    <h1 style="text-align:center;">Welcome to Roma Events!</h1>
+    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
+    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
+    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
 
-<RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
-<p><em>@loading</em></p>
+    <p><em>@loading</em></p>
+    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
 
-@if (EventList == null)
-{
-    Console.WriteLine(EventList.ToString);
-}
-else
-{
-    @foreach (var Event in EventList)
+    @if (EventList == null)
     {
-        Console.WriteLine(Event.id);
-        <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
-                    eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
+        Console.WriteLine(EventList.ToString);
     }
-}
+    else
+    {
+        @foreach (var Event in EventList)
+        {
+            Console.WriteLine(Event.id);
+            <EventCard eventName="@Event.name" eventDateTime="@Event.datetime" eventAddress="@Event.address" eventDescription="@Event.description"
+                       eventImageURL="@Event.url" eventType="@Event.type" eventId="@Event.id"></EventCard>
+        }
+    }
 
 
 </div>
@@ -38,45 +42,23 @@ else
     public List<Event> Items = new List<Event>();
 
 
-
-
+    public int Test1()
+    {
+        return 2;
+    }
     protected override async Task OnInitializedAsync()
     {
-        Task<List<Event>> LIST = GetEventsAsync();
+        EventLoader _eventLoader = new EventLoader();
+        Task<List<Event>> LIST = _eventLoader.GetEventsAsync();
         EventList = await LIST;
         loading = "Sucessfully Loaded";
         //await InvokeAsync(() => StateHasChanged());
     }
-
-
 
     /**protected override async Task OnInitializedAsync()
     {
         string output = "[\n  {\n    \"eventName\": \"Shari Vari\",\n    \"eventDateTime\": \"2022-10-15T00:30:50\",\n    \"eventAddress\": \"Via de' Nari, 14, 00186 Roma RM\",\n    \"eventDescription\": \"Lorum Ipsum Dolor\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 2\n  },\n  {\n    \"eventName\": \"Cash Club\",\n    \"eventDateTime\": \"2022-10-10T07:30:50\",\n    \"eventAddress\": \"Via Agostino Bertani, 20 00186 Roma RM\",\n    \"eventDescription\": \"Lorup Ipsum My Penis\",\n    \"eventImageURL\": \"https://i.imgur.com/ditrT1U.png\",\n    \"eventType\": 1\n  }\n]";
         EventList = JsonConvert.DeserializeObject<List<Event>>(output);
     } **/
-    public async Task<List<Event>> GetEventsAsync()
-    {
-        Uri uri = new Uri(string.Format("https://romaeventfunction.azurewebsites.net/api/event", string.Empty));
-        //Console.WriteLine(uri);
-        try
-        {
-            HttpResponseMessage response = await _httprestservice._client.GetAsync(uri);
-            //Console.WriteLine(response.IsSuccessStatusCode);
-            if (response.IsSuccessStatusCode)
-            {
-                string content = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(content);
-                //Items = JsonSerializer.Deserialize(content,_httprestservice._serializerOptions);
-                Items = JsonConvert.DeserializeObject<List<Event>>(content);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(@"\tERROR {0}", ex.Message);
-        }
-
-        return Items;
-    }
 }
 

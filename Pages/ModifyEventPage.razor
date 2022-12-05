@@ -1,10 +1,20 @@
 ﻿@page "/modifyEventPage"
+
+@using Radzen
+@using Newtonsoft.Json;
+@using System.Net.Http;
+@using System.Text;
+@using System;
+@using eventsApp.Data;
+
 @inject NavigationManager NavManager
+@inject HttpRestService _httprestservice;
+@inject Session _session;
 
 <div class=main>
     <h1 style="margin-bottom: 3%;">
         Modify Event Page
-    </h1>    
+    </h1>
     <div class=inputRow>
         <p class=labelStyle>Name:</p>
         <RadzenTextBox Name="EventName" @bind-Value=name Style="border: 2px solid #066274; width: 40%;" />
@@ -29,12 +39,12 @@
         <p class=labelStyle>Type:</p>
         <RadzenDropDown TValue="string" Data=eventTypes Value=typeString Change=updateDropdown Style="border: 2px solid #066274; width: 40%;" />
     </div>
-    
-    <div class=buttonRow >
+
+    <div class=buttonRow>
         <RadzenButton Click=@(args => OnCancel()) Text="Cancel" Style="background-color: #066274" />
         <RadzenButton Click=@(args => OnSave()) Text="Save" Style="background-color: #066274" />
     </div>
-    
+
 </div>
 
 @code {
@@ -45,19 +55,61 @@
     string imageURL;
     int type;
     string typeString;
+    public List<Event> Items = new List<Event>();
+    public Event EventItem = new Event();
+    private Event EventCard = new Event();
     List<String> eventTypes = new List<String>() { "Religion", "Sports", "Art", "Music" };
-
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        name = "some event's name";
-        date = DateTime.Now;
-        address = "Piazza delle Cinque Scole, 23 apt. 2, Rome";
-        description = "This is a random description that is just filler.";
-        imageURL = "image.png";
-        type = 1;
-        typeString = "Religion";
-    }
+        Task<Event> LIST = GetEventsAsync();
+        EventCard = await LIST;
 
+        name = $"{EventItem.name}";
+        date = DateTime.Now;
+        address = $"{EventItem.address}";
+        description = $"{EventItem.description}";
+        imageURL = $"{EventItem.url}";
+        type = EventItem.type;
+        if (type == 1)
+        {
+            typeString = "Religion";
+        }
+        else if (type == 2)
+        {
+            typeString = "Sports";
+        }
+        else if (type == 3)
+        {
+            typeString = "Art";
+        }
+        else if (type == 4)
+        {
+            typeString = "Music";
+        }
+    }
+    public async Task<Event> GetEventsAsync()
+    {
+        Uri uri = new Uri(string.Format($"https://romaeventfunction.azurewebsites.net/api/event/{_session.id}", string.Empty));
+        //Console.WriteLine(uri);
+        try
+        {
+            HttpResponseMessage response = await _httprestservice._client.GetAsync(uri);
+            //Console.WriteLine(response.IsSuccessStatusCode);
+            if (response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(content);
+                //Items = JsonSerializer.Deserialize(content,_httprestservice._serializerOptions);
+                Items = JsonConvert.DeserializeObject<List<Event>>(content);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
+        EventItem = Items[0];
+        return EventItem;
+    }
     void updateDropdown(object newTypeString)
     {
         type = eventTypes.IndexOf((string)newTypeString) + 1;
@@ -66,10 +118,46 @@
     void OnCancel()
     {
         Console.WriteLine("$Update event cancelled!");
+        NavManager.NavigateTo("/eventpage");
     }
-
-    void OnSave()
+    public async Task CreateEventAsync(Event eve, string AccID, bool isNewItem = false)
     {
-        Console.WriteLine($"Update event confirmed!");
+        Uri uri = new Uri(string.Format($"https://romaeventfunction.azurewebsites.net/api/event/{AccID}", string.Empty));
+
+        try
+        {
+
+            string json = JsonConvert.SerializeObject(eve, Formatting.Indented);
+            Console.WriteLine(json);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            if (isNewItem)
+                response = await _httprestservice._client.PostAsync(uri, content);
+            else
+                response = await _httprestservice._client.PutAsync(uri, content);
+
+            if (response.IsSuccessStatusCode)
+                Console.WriteLine(@"\tEvent successfully saved.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(@"\tERROR {0}", ex.Message);
+        }
     }
-}
+    public async Task OnSave()
+    {
+        Event newEvent = new Event();
+        newEvent.id = _session.id;
+        newEvent.name = name;
+        newEvent.datetime = date.ToString();
+        newEvent.description = description;
+        newEvent.address = address;
+        newEvent.type = type;
+        newEvent.url = imageURL;
+        Console.WriteLine($"Update event confirmed!");
+        Task editEvent = CreateEventAsync(newEvent,_session.id);
+        await editEvent;
+        NavManager.NavigateTo("/home");
+    }
+    }
