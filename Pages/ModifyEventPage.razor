@@ -11,7 +11,7 @@
     </div>
     <div class=inputRow>
         <p class=labelStyle>Date:</p>
-        <RadzenTextBox Name="EventDate" @bind-Value=date Style="border: 2px solid #066274; width: 40%;" />
+        <RadzenDatePicker @bind-Value=date Style="border: 2px solid #066274; width: 40%;" />
     </div>
     <div class=inputRow>
         <p class=labelStyle>Address:</p>
@@ -27,12 +27,9 @@
     </div>
     <div class=inputRow>
         <p class=labelStyle>Type:</p>
-        <RadzenTextBox Name="EventType" @bind-Value=type Style="border: 2px solid #066274; width: 40%;" />
+        <RadzenDropDown TValue="string" Data=eventTypes Value=typeString Change=updateDropdown Style="border: 2px solid #066274; width: 40%;" />
     </div>
-    <div class=inputRow>
-        <p class=labelStyle>Number of Tickets:</p>
-        <RadzenTextBox Name="EventTotalTickets" @bind-Value=ticketCount Style="border: 2px solid #066274; width: 40%;" />
-    </div>
+    
     <div class=buttonRow >
         <RadzenButton Click=@(args => OnCancel()) Text="Cancel" Style="background-color: #066274" />
         <RadzenButton Click=@(args => OnSave()) Text="Save" Style="background-color: #066274" />
@@ -41,13 +38,30 @@
 </div>
 
 @code {
-    string name = "some event's name";
-    string date = "04/25/2022";
-    string address = "Piazza delle Cinque Scole, 23 apt. 2, Rome";
-    string description = "This is a random description that is just filler.";
-    string imageURL = "image.png";
-    string type = "type1";
-    string ticketCount = "10";
+    string name;
+    DateTime date;
+    string address;
+    string description;
+    string imageURL;
+    int type;
+    string typeString;
+    List<String> eventTypes = new List<String>() { "Religion", "Sports", "Art", "Music" };
+
+    protected override void OnInitialized()
+    {
+        name = "some event's name";
+        date = DateTime.Now;
+        address = "Piazza delle Cinque Scole, 23 apt. 2, Rome";
+        description = "This is a random description that is just filler.";
+        imageURL = "image.png";
+        type = 1;
+        typeString = "Religion";
+    }
+
+    void updateDropdown(object newTypeString)
+    {
+        type = eventTypes.IndexOf((string)newTypeString) + 1;
+    }
 
     void OnCancel()
     {
