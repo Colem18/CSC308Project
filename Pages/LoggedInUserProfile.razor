@@ -24,21 +24,29 @@
 @code {
     Account profile = new Account();
     string account_type;
-
     protected override async Task OnInitializedAsync()
     {
         profile.username = _account.username;
         profile.email = _account.email;
+        account_type = getAccountType();
+    }
+    public string getAccountType()
+    {
+        string account_p = "";
         if (_account.is_admin)
         {
-            account_type = "Administrator";
+            account_p = "Administrator";
         }
         else if (_account.id != null)
         {
-            account_type = "Citzen";
+            account_p = "Citizen";
         }
+        else
+        {
+            account_p = "Error";
+        }
+        return account_p;
     }
-
     private void logout()
     {
         _account.username = null;
