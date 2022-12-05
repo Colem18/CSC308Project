@@ -17,8 +17,15 @@
         Event Successfully Proccessed
     </h3>
     @*<div style="width: 100%; display: flex; flex-direction: column; align-items: center">*@
-    <RadzenIcon Icon="check_circle_outline" IconStyle="IconStyle.Success" Style="background-size: 300px; height:350px; width:350px" />
-    <RadzenIcon Icon="highlight_off" IconStyle="IconStyle.Danger" Style="background-size: 300px; height:350px; width:350px" />
+    @if (Success)
+    {
+        <RadzenIcon Icon="check_circle_outline" IconStyle="IconStyle.Success" Style="background-size: 300px; height:350px; width:350px" />
+    }
+    else if (Success = false)
+    {
+        <RadzenIcon Icon="highlight_off" IconStyle="IconStyle.Danger" Style="background-size: 300px; height:350px; width:350px" />
+    }
+
     @*<RadzenButton Style="background-color: #066274; width: 20%">
             Done
         </RadzenButton>*@
@@ -59,6 +66,7 @@
 
 
 @code {
+    bool Success;
     public class newEvent
     {
         public string name { get; set; }
@@ -105,9 +113,11 @@
 
             if (response.IsSuccessStatusCode)
                 Console.WriteLine(@"\tEvent successfully saved.");
+                Success = true;
         }
         catch (Exception ex)
         {
+            Success = false;
             Console.WriteLine(@"\tERROR {0}", ex.Message);
         }
     }
@@ -119,6 +129,5 @@
     {
         NavManager.NavigateTo("/modifyEventPage");
     }
-
 
 }
