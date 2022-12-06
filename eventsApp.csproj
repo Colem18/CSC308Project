@@ -73,10 +73,20 @@
       <BundleResource Include="images\sharivari.png" />
       <BundleResource Include="wwwroot\img\logo_blue500.png" />
       <BundleResource Include="wwwroot\img\EmptyFavorites.png" />
+      <BundleResource Include="wwwroot\img\success.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </BundleResource>
+      <BundleResource Include="wwwroot\**">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </BundleResource>
     </ItemGroup>
     <ItemGroup>
       <Content Remove="wwwroot\img\logo_blue500.png" />
       <Content Remove="wwwroot\img\EmptyFavorites.png" />
+      <Content Remove="wwwroot\img\success.png" />
+      <Content Remove="wwwroot\img\failure.jpeg" />
     </ItemGroup>
 </Project>
 

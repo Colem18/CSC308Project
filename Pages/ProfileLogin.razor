@@ -46,12 +46,20 @@
 </style>
 
 @code {
+
     string userName = "admin";
     string password = "admin";
     string error = "";
     public List<Account> Items = new List<Account>();
     public List<Account> Accounts = new List<Account>();
     string AccountJSON = "[\n {\n    \"id\": \"9b142643b8dd49beb1c586f7cf3b07b2\",\n    \"username\": \"Dev\",\n    \"password\": \"test123\",\n    \"email\": \"dsmasrani@gmail.com\",\n    \"is_admin\": true\n}, \n {\n    \"id\": \"691426a124789beb1c586f7cf3b07b2\",\n    \"username\": \"Cole\",\n    \"password\": \"Cole\",\n    \"email\": \"cmori18@gmail.com\",\n    \"is_admin\": true\n} \n]";
+    protected override async Task OnInitializedAsync()
+    {
+        if(_account.id != null)
+        {
+            NavManager.NavigateTo("/LoggedInUserProfile");
+        }
+    }
     public async Task OnLogin(LoginArgs args, string name)
     //async Task
     {

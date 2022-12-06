@@ -6,7 +6,7 @@
     <div class="top-row navbar ps-3 navbar-dark">
         <div class="container">
             <a class="navbar-brand mx-auto" href="">
-                <img src="img/logo_blue500.png" alt="bluelogo" width="400" height="300">
+                <img src="img/logo_blue500.png" alt="bluelogo" class="responsive">
             </a>
             <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -48,6 +48,11 @@
                     <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Admin Page" Icon="add" Path="adminpage" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Logout" Icon="logout" @onclick="OnClickLogo" Path="/"/>
+                    <!-- <RadzenPanelMenuItem Style="width: auto" Text="Modify Event" Icon="post_add" Path="modifyEventPage" /> -->
+                    <!-- <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard" /> -->
+                    <!-- <RadzenPanelMenuItem Style="width: auto" Text="Admin Page" Icon="add" Path="adminpage" /> -->
+                    <RadzenPanelMenuItem Style="width: auto" Text="Logged In Profile" Icon="add" Path="LoggedInUserProfile" />
+                    <RadzenPanelMenuItem Style="width: auto" Text="Logout" Icon="logout" @onclick="OnClickLogo" Path="/"/>
                 </RadzenPanelMenu>
             </RadzenCard>
         </nav>
@@ -65,7 +70,7 @@
 
         void OnClickLogo()
         {
-            NavManager.NavigateTo("/");
+            NavManager.NavigateTo("/home");
 
             if (collapseNavMenu == false)
             {

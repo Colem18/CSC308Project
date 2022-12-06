@@ -12,29 +12,43 @@
         <p>Email: @profile.email</p>
         <p>Account Type: @account_type</p>
     </div>
-    <RadzenButton Text="Logout" onclick=logout Style="background-color: #066274; margin-top: 5%;" />
+    <RadzenButton Text="Logout" Click="logout" Style="background-color: #066274; margin-top: 5%;" />
 </div>
 
 @code {
     Account profile = new Account();
     string account_type;
-
     protected override async Task OnInitializedAsync()
     {
         profile.username = _account.username;
         profile.email = _account.email;
+        account_type = getAccountType();
+    }
+    public string getAccountType()
+    {
+        string account_p = "";
         if (_account.is_admin)
         {
-            account_type = "Administrator";
+            account_p = "Administrator";
         }
         else if (_account.id != null)
         {
-            account_type = "Citzen";
+            account_p = "Citizen";
         }
+        else
+        {
+            account_p = "Error";
+        }
+        return account_p;
     }
-
     private void logout()
     {
-        
+        _account.username = null;
+        _account.id = null;
+        _account.email = null;
+        _account.is_admin = false;
+        _account.password = null;
+        _account.following_list = null;
+        NavManager.NavigateTo("/home");
     }
 }
