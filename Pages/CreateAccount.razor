@@ -10,29 +10,35 @@
 
 @inject Data.HttpRestService _httprestservice;
 
-<div class="col-xl-6 p-3" style="display: flex; flex-direction: column">
-    <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H2" Class="mb-4">
+<div class=main >
+    <h1>
         Create Account
-    </RadzenText>
-    <RadzenTemplateForm Data=@("SimpleLogin") Action="http://www.google.com">
+    </h1>
+    @*<RadzenTemplateForm Data=@("SimpleLogin") Action="http://www.google.com">
         <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login=@(args => OnLogin(args, "Simple login")) />
-    </RadzenTemplateForm>
-    <div style="display: flex; flex-direction: row; padding-left: 30%; padding-top: 10px">
-        <RadzenLabel Component="userEmail" Text="Email:" style="padding-right: 5px" />
-        <RadzenTextBox Name="UserEmail" @bind-Value=email Style="border: 2px solid #066274" />
+    </RadzenTemplateForm>*@
+    <div class="inputGroup">
+        <p class=inputLabels>Username:</p>
+        <RadzenTextBox Name="Username" @bind-Value=userName Style="border: 2px solid #066274" />
     </div>
-<div style="display: flex; flex-direction: row; padding-left: 30%; padding-top; 10px%">
-    <RadzenText style="padding-right: 5px">isAdmin</RadzenText>
-    <RadzenCheckBox Value=isAdmin />
-</div>
+    <div class="inputGroup">
+        <p class=inputLabels>Password:</p>
+        <RadzenTextBox Name="Password" @bind-Value=password Style="border: 2px solid #066274" />
+    </div>
+    <div class="inputGroup">
+        <p class=inputLabels >Email:</p>
+        <RadzenTextBox Name="Email" @bind-Value=email Style="border: 2px solid #066274" />
+    </div>
+    <RadzenButton Click=OnSignUp Text="Sign Up" Style="background-color: #066274; margin-top: 5%;" />
 </div>
 
 @code {
-    string userName = "admin";
-    string password = "admin";
-    string email = "email";
-    bool isAdmin = true;
+    string userName = "";
+    string password = "";
+    string email = "";
+    //bool isAdmin = true;
     string error = "";
+    /*
     public class Account
     {
         public string username { get; set; }
@@ -41,18 +47,35 @@
         public bool is_admin { get; set; }
         public string[] following_list { get; set; }
     }
+    */
+    /*
     public async Task OnLogin(LoginArgs args, string name)
     {
         Account acc = new Account();
         acc.username = args.Username;
         acc.password = args.Password;
         acc.email = email;
-        acc.is_admin = isAdmin;
+        //acc.is_admin = isAdmin;
         acc.following_list = Array.Empty<string>();
         Console.WriteLine($"Username: {args.Username} and password: {args.Password}");
         Task newAcc = CreateAccountAsync(acc, true);
         await newAcc;
     }
+    */
+
+    public async Task OnSignUp()
+    {
+        Account acc = new Account();
+        acc.username = userName;
+        acc.password = password;
+        acc.email = email;
+        acc.is_admin = false;
+        acc.following_list = Array.Empty<string>();
+        Console.WriteLine($"Username: {userName} and password: {password}");
+        Task newAcc = CreateAccountAsync(acc, true);
+        await newAcc;
+    }
+
     public async Task CreateAccountAsync(Account acc, bool isNewItem = false)
     {
         Uri uri = new Uri(string.Format("https://308projectlogin.azurewebsites.net/api/account", string.Empty));
