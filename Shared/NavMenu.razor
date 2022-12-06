@@ -1,6 +1,7 @@
 
 @inject NavigationManager NavManager
-
+@using Data;
+@inject Account _account;
 
     <div class="top-row navbar ps-3 navbar-dark">
         <div class="container">
@@ -37,12 +38,15 @@
                 <RadzenPanelMenu Style="width:auto;" Click="@(() => ToggleNavMenu())">
                     <RadzenPanelMenuItem Style="width:auto" Text="Home" Icon="home" Path="home" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Favorites" Icon="star" Path="favoritesPage" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="profileLogin" />
+                    @if(_account.id != null){
+                        <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="LoggedInUserProfile" />
+                    }else{
+                        <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="profileLogin" />
+                    }
                     <RadzenPanelMenuItem Style="width: auto" Text="Create Event" Icon="post_add" Path="CreateEventLanding" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Modify Event" Icon="post_add" Path="modifyEventPage" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Admin Page" Icon="add" Path="adminpage" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Logged In Profile" Icon="add" Path="LoggedInUserProfile" />
                     <RadzenPanelMenuItem Style="width: auto" Text="Logout" Icon="logout" @onclick="OnClickLogo" Path="/"/>
                 </RadzenPanelMenu>
             </RadzenCard>
