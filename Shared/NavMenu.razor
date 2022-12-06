@@ -5,7 +5,7 @@
     <div class="top-row navbar ps-3 navbar-dark">
         <div class="container">
             <a class="navbar-brand mx-auto" href="">
-                <img src="img/logo_blue500.png" alt="bluelogo" width="400" height="300">
+                <img src="img/logo_blue500.png" alt="bluelogo" class="responsive">
             </a>
             <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@
 
         void OnClickLogo()
         {
-            NavManager.NavigateTo("/");
+            NavManager.NavigateTo("/home");
 
             if (collapseNavMenu == false)
             {
