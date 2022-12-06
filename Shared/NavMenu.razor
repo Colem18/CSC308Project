@@ -36,18 +36,17 @@
             @page "/panelmenu"
             <RadzenCard Style="width:auto" Class="mx-auto">
                 <RadzenPanelMenu Style="width:auto;" Click="@(() => ToggleNavMenu())">
-                    <RadzenPanelMenuItem Style="width:auto" Text="Home" Icon="home" Path="home" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Favorites" Icon="star" Path="favoritesPage" />
-                    @if(_account.id != null){
-                        <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="LoggedInUserProfile" />
+                <RadzenPanelMenuItem Style="width:auto" Text="Home" Icon="home" Path="home" />
+                <RadzenPanelMenuItem Style="width: auto" Text="Favorites" Icon="star" Path="favoritesPage" />
+                @if(_account.id != null){
+                    <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="LoggedInUserProfile" />
+                    @if(_account.is_admin == true)
+                    {
                         <RadzenPanelMenuItem Style="width: auto" Text="Create Event" Icon="post_add" Path="CreateEventLanding" />
-                    }else{
-                        <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="profileLogin" />
+                    }
+                }else{
+                    <RadzenPanelMenuItem Style="width: auto" Text="Profile" Icon="account_box" Path="profileLogin" />
                 }
-                <RadzenPanelMenuItem Style="width: auto" Text="Modify Event" Icon="post_add" Path="modifyEventPage" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Favorites with Card" Icon="home" Path="favoriteswithcard" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Admin Page" Icon="add" Path="adminpage" />
-                    <RadzenPanelMenuItem Style="width: auto" Text="Logout" Icon="logout" @onclick="OnClickLogo" Path="/"/>
                 </RadzenPanelMenu>
             </RadzenCard>
         </nav>

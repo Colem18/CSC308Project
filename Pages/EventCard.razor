@@ -27,6 +27,11 @@
     img {
         max-width: 100%;
     }
+
+    .space {
+        height: 50%;
+        width: 100%;
+    }
 </style>
 <RadzenCard class="flexColumn">
     <div>
@@ -43,8 +48,9 @@
     </p>
     <p>@eventAddress</p>
     <RadzenImage Path="@eventImageURL" Class="float-left mr-3" Style="width: 100%; border-radius: 2%;" />
-    <div class="mt-3"> </div>
+    <div class="mt-3"/>
     <RadzenButton Click="newPage" Text="View Event" ButtonStyle="ButtonStyle.Primary" Style="display: block; width: 100%; border-radius: 2%;" />
+    <div class=space/>
 </RadzenCard>
 
 @code {

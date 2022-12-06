@@ -10,16 +10,13 @@
 
 <div class="flex-container">
     <h1 style="text-align:center;">Welcome to Roma Events!</h1>
-    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
-    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
-    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
 
     <p><em>@loading</em></p>
     <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" />
 
     @if (EventList == null)
     {
-        Console.WriteLine(EventList.ToString);
+        Console.WriteLine(EventList.ToString());
     }
     else
     {
